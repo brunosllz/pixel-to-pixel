@@ -1,28 +1,25 @@
-import { BehanceLogo } from '@/assets/behance-logo'
-import { Browsers } from '@/assets/browsers'
-import { Devices } from '@/assets/devices'
-import { DribbleLogo } from '@/assets/dribble-logo'
-import { LinkedinLogo } from '@/assets/linkedin-logo'
-import { MobileDevice } from '@/assets/mobile-device'
-import { PixelToPixelDarkLogo } from '@/assets/pixel-to-pixel-dark-logo'
-
-import { ClientTestimonyCarousel } from '@/components/client-testimony-carousel'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { Button } from '@/components/ui/button'
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel'
+import { Button } from '@/components/ui/button'
+import { ClientTestimonyCarousel } from '@/components/client-testimony-carousel'
+import { HeroSection } from './components/hero-section'
 import { Separator } from '@/components/ui/separator'
-import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { BrandSection } from './components/brand-section'
+
+import { Browsers } from '@/assets/browsers'
+import { Devices } from '@/assets/devices'
+import { MobileDevice } from '@/assets/mobile-device'
+import { ArrowUpRight } from 'lucide-react'
 
 const ACCORDION_ITEMS = [
   {
@@ -65,58 +62,9 @@ const ACCORDION_ITEMS = [
 export default function Home() {
   return (
     <div className="w-full">
-      <section className="w-full bg-background-dark">
-        <div className="mx-auto w-full max-w-container space-y-10.5 px-5 pb-16 pt-10.5">
-          <h1 className="text-[2.125rem] font-medium text-text-white-primary">
-            Transformando ideias em experiências visuais cativantes,{' '}
-            <span className="text-4xl text-text-white-tertiary">
-              nosso design encanta, conecta e simplifica
-            </span>
-          </h1>
+      <HeroSection />
 
-          <Separator className="bg-text-dark-secondary" />
-
-          <p className="text-xl font-light text-text-white-secondary">
-            Conexões Intuitivas, Experiências Encantadoras: A Maestria do Design
-            em Movimento e Impacto Visual
-          </p>
-
-          <Button variant="primary" size="lg">
-            Entrar em contato <ArrowRight size={24} />
-          </Button>
-
-          <div className="grid grid-cols-3 gap-3">
-            <Link
-              href="https://www.linkedin.com/in/ui-amaurijunior/"
-              className="flex h-[5.5rem] flex-col items-center justify-center gap-2 border border-border-dark-secondary text-text-white-secondary transition-colors hover:border-text-dark-tertiary"
-            >
-              <LinkedinLogo />
-              Linkedin
-            </Link>
-            <Link
-              href="https://www.behance.net/ui_amauri"
-              className="flex h-[5.5rem] flex-col items-center justify-center gap-2 border border-border-dark-secondary text-text-white-secondary transition-colors hover:border-text-dark-tertiary"
-            >
-              <BehanceLogo />
-              Behance
-            </Link>
-            <Link
-              href="#"
-              className="flex h-[5.5rem] flex-col items-center justify-center gap-2 border border-border-dark-secondary text-text-white-secondary transition-colors hover:border-text-dark-tertiary"
-            >
-              <DribbleLogo />
-              Dribbble
-            </Link>
-          </div>
-        </div>
-      </section>
-      <div className="w-full border-b border-border-white-primary py-8">
-        <div className="mx-auto flex max-w-container items-center gap-4 px-5">
-          <PixelToPixelDarkLogo width={42} height={42} />
-
-          <p className="font-medium">Combinamos estética e funcionalidade.</p>
-        </div>
-      </div>
+      <BrandSection />
 
       <section className="mx-auto w-full max-w-container space-y-2.5 px-5 pb-16 pt-14">
         <h2 className="text-[1.75rem] font-semibold">
@@ -143,7 +91,7 @@ export default function Home() {
                 próprios projetos para recrutar colaboradores.
               </p>
 
-              <Button size="sm">
+              <Button size="sm" variant="outlined-primary">
                 Ver projeto <ArrowUpRight size={18} />
               </Button>
             </div>
@@ -216,7 +164,7 @@ export default function Home() {
                 <AccordionItem
                   key={item.id}
                   value={item.id}
-                  className="[&_button]:last:pb-0"
+                  className="[&_button]:last:pb-0 [&_button]:last:[&[data-state=open]]:pb-5 [&_div]:last:pb-0"
                 >
                   <AccordionTrigger>
                     <div className="flex flex-col items-start">
@@ -264,7 +212,7 @@ export default function Home() {
               {Array.from({ length: 5 }).map((_, index) => (
                 <CarouselItem
                   key={index}
-                  className="group max-w-max saturate-0 transition-all hover:saturate-100"
+                  className="group max-w-max transition-all lg:saturate-0 lg:hover:saturate-100"
                 >
                   <div className="w-[13.75rem] space-y-4">
                     <div className="h-[17.5rem] w-full bg-[#D9D9D9]">

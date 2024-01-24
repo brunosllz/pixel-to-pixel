@@ -81,19 +81,25 @@ export function ProjectsInspirationsCarousel() {
 
               <div className="space-x-3">
                 <Button
+                  variant="icon"
+                  size="icon"
                   onClick={() => {
                     api?.scrollPrev()
                   }}
                 >
                   <ArrowLeft />
+                  <span className="sr-only">Slide anterior</span>
                 </Button>
 
                 <Button
+                  variant="icon"
+                  size="icon"
                   onClick={() => {
                     api?.scrollNext()
                   }}
                 >
                   <ArrowRight />
+                  <span className="sr-only">Próximo slide</span>
                 </Button>
               </div>
             </div>

@@ -24,6 +24,14 @@ const config = {
         brand: {
           primary: '#653DF5',
         },
+        effect: {
+          white: {
+            hover: 'rgba(255, 255, 255, 0.08)',
+          },
+          dark: {
+            hover: 'rgba(0, 0, 0, 0.08)',
+          },
+        },
         background: {
           dark: {
             DEFAULT: '#040404',

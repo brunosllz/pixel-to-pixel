@@ -25,12 +25,14 @@ export function Footer() {
           >
             Linkedin
           </Link>
+
           <Link
             href="#"
             className="text-center text-text-white-secondary transition-colors hover:text-text-white-primary focus:underline focus:outline-none"
           >
             Behance
           </Link>
+
           <Link
             href="#"
             className="text-center text-text-white-secondary transition-colors hover:text-text-white-primary focus:underline focus:outline-none"

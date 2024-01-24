@@ -2,8 +2,13 @@ import { Devices } from '@/assets/devices'
 import { ProjectsInspirationsCarousel } from '@/components/projects-inspirations-carousel'
 import { Separator } from '@/components/ui/separator'
 import { ArrowUpRight } from 'lucide-react'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Projeto',
+}
 
 export default function Project() {
   return (

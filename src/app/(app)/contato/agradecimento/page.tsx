@@ -20,7 +20,9 @@ export default function Acknowledgment() {
         Retornaremos em até 48 horas.
       </span>
 
-      <Button className="w-full">Voltar para Home</Button>
+      <Button className="w-full" variant="outlined-secondary">
+        Voltar para Home
+      </Button>
     </div>
   )
 }

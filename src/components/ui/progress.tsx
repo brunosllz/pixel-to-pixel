@@ -12,7 +12,6 @@ const Progress = React.forwardRef<
   return (
     <ProgressPrimitive.Root
       ref={ref}
-      // max={5}
       className={cn(
         'relative h-0.5 w-full overflow-hidden  bg-border-white-primary',
         className,
@@ -21,6 +20,10 @@ const Progress = React.forwardRef<
     >
       <ProgressPrimitive.Indicator
         className="h-full w-[] flex-1 bg-border-dark-secondary transition-all duration-700"
+        role="progressbar"
+        aria-valuenow={value ?? 0}
+        aria-valuemin={1}
+        aria-valuemax={max}
         style={{
           transform: `translateX(-${100 - ((value ?? 0) * 100) / (max ?? 0)}%)`,
         }}

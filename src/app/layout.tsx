@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { Lexend_Exa } from 'next/font/google'
 import './globals.css'
-import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
 
 const lexendExa = Lexend_Exa({
   display: 'swap',
@@ -11,7 +9,10 @@ const lexendExa = Lexend_Exa({
 })
 
 export const metadata: Metadata = {
-  title: 'Pixel to Pixel',
+  title: {
+    template: '%s | Pixel to Pixel',
+    default: 'Pixel to Pixel',
+  },
   description: 'Amauri',
 }
 
@@ -22,11 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br" className={`antialiased ${lexendExa.variable}`}>
-      <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
