@@ -1,4 +1,6 @@
 import { PixelToPixelDarkLogo } from '@/assets/pixel-to-pixel-dark-logo'
+
+import { BrandLabelMD } from './brand-label-md'
 import { BrandLabel } from './brand-label'
 
 export function BrandSection() {
@@ -10,6 +12,7 @@ export function BrandSection() {
         </div>
 
         <BrandLabel />
+        <BrandLabelMD />
       </div>
     </div>
   )

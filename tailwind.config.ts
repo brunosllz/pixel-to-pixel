@@ -13,9 +13,10 @@ const config = {
     extend: {
       spacing: {
         container: '77.25rem',
-        '10.5': '2.625rem',
         '4.5': '1.125rem',
+        '10.5': '2.625rem',
         '11.5': '2.875rem',
+        '13': '3.25rem',
       },
       height: {
         13: '3.25rem',
@@ -87,6 +88,9 @@ const config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+      backgroundImage: {
+        'background-grid': "url('/background-grid.png')",
       },
     },
   },

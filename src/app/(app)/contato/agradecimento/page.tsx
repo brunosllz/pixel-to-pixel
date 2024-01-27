@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
+import Link from 'next/link'
 
 export default function Acknowledgment() {
   return (
@@ -20,8 +21,10 @@ export default function Acknowledgment() {
         Retornaremos em até 48 horas.
       </span>
 
-      <Button className="w-full" variant="outlined-secondary">
-        Voltar para Home
+      <Button className="w-full" variant="outlined-secondary" asChild>
+        <Link href="/">
+          <span>Voltar para Home</span>
+        </Link>
       </Button>
     </div>
   )

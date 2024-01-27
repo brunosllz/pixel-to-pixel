@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { InputControl, InputLabel, InputRoot } from '@/components/ui/input'
 import { ArrowRight } from 'lucide-react'
 import { Metadata } from 'next'
 
@@ -23,69 +24,29 @@ export default function Contact() {
       </div>
 
       <form className="w-full space-y-6 pt-8">
-        <div className="relative w-full">
-          <input
-            type="text"
-            id="floating_filled"
-            className="peer h-16 w-full appearance-none border border-[#D9D9D9] bg-transparent px-4 pb-[11.5px] pt-[31.5px] leading-none text-gray-900 transition-all hover:border-black focus:border-black focus:shadow-[4px_4px_0px_0px_#040404] focus:outline-none focus:ring-0"
-            placeholder=" "
-          />
+        <InputRoot>
+          <InputControl id="name" />
 
-          <label
-            htmlFor="floating_filled"
-            className="absolute start-4 top-6 z-10 origin-[0] -translate-y-4 scale-75 transform text-black duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-[#8E8E8E] peer-focus:top-6 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-black"
-          >
-            Seu nome
-          </label>
-        </div>
+          <InputLabel htmlFor="name"> Seu nome</InputLabel>
+        </InputRoot>
 
-        <div className="relative w-full">
-          <input
-            type="text"
-            id="floating_filled"
-            className="peer h-16 w-full appearance-none border border-[#D9D9D9] bg-transparent px-4 pb-[11.5px] pt-[31.5px] leading-none text-gray-900 transition-all hover:border-black focus:border-black focus:shadow-[4px_4px_0px_0px_#040404] focus:outline-none focus:ring-0"
-            placeholder=" "
-          />
+        <InputRoot>
+          <InputControl id="email" />
 
-          <label
-            htmlFor="floating_filled"
-            className="absolute start-4 top-6 z-10 origin-[0] -translate-y-4 scale-75 transform text-black duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-[#8E8E8E] peer-focus:top-6 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-black"
-          >
-            Email
-          </label>
-        </div>
+          <InputLabel htmlFor="email">Email</InputLabel>
+        </InputRoot>
 
-        <div className="relative w-full">
-          <input
-            type="text"
-            id="floating_filled"
-            className="peer h-16 w-full appearance-none border border-[#D9D9D9] bg-transparent px-4 pb-[11.5px] pt-[31.5px] leading-none text-gray-900 transition-all hover:border-black focus:border-black focus:shadow-[4px_4px_0px_0px_#040404] focus:outline-none focus:ring-0"
-            placeholder=" "
-          />
+        <InputRoot>
+          <InputControl id="phone" />
 
-          <label
-            htmlFor="floating_filled"
-            className="absolute start-4 top-6 z-10 origin-[0] -translate-y-4 scale-75 transform text-black duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-[#8E8E8E] peer-focus:top-6 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-black"
-          >
-            Whatsapp
-          </label>
-        </div>
+          <InputLabel htmlFor="phone">Whatsapp</InputLabel>
+        </InputRoot>
 
-        <div className="relative w-full">
-          <input
-            type="text"
-            id="floating_filled"
-            className="peer h-16 w-full appearance-none border border-[#D9D9D9] bg-transparent px-4 pb-[11.5px] pt-[31.5px] leading-none text-gray-900 transition-all hover:border-black focus:border-black focus:shadow-[4px_4px_0px_0px_#040404] focus:outline-none focus:ring-0"
-            placeholder=" "
-          />
+        <InputRoot>
+          <InputControl id="business" />
 
-          <label
-            htmlFor="floating_filled"
-            className="absolute start-4 top-6 z-10 origin-[0] -translate-y-4 scale-75 transform text-black duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-[#8E8E8E] peer-focus:top-6 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-black"
-          >
-            Nome da empresa
-          </label>
-        </div>
+          <InputLabel htmlFor="business">Nome da empresa</InputLabel>
+        </InputRoot>
 
         <div>
           <label className="">Dados do Projeto</label>
@@ -93,34 +54,24 @@ export default function Contact() {
 
         <div className="relative w-full">
           <textarea
-            id="floating_filled"
+            id="about"
             className="peer h-[13.75rem] w-full appearance-none border border-[#D9D9D9] bg-transparent px-4 pb-[11.5px] pt-[31.5px] leading-none text-gray-900 transition-all hover:border-black focus:border-black focus:shadow-[4px_4px_0px_0px_#040404] focus:outline-none focus:ring-0"
             placeholder=" "
           />
 
           <label
-            htmlFor="floating_filled"
+            htmlFor="about"
             className="absolute start-4 top-5 z-10 origin-[0] -translate-y-1/2 scale-75 transform text-black duration-300 peer-placeholder-shown:top-8 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-[#8E8E8E] peer-focus:top-5 peer-focus:-translate-y-1/2 peer-focus:scale-75 peer-focus:text-black"
           >
             Conte-nos sobre o projeto
           </label>
         </div>
 
-        <div className="relative w-full">
-          <input
-            type="text"
-            id="floating_filled"
-            className="peer h-16 w-full appearance-none border border-[#D9D9D9] bg-transparent px-4 pb-[11.5px] pt-[31.5px] leading-none text-gray-900 transition-all hover:border-black focus:border-black focus:shadow-[4px_4px_0px_0px_#040404] focus:outline-none focus:ring-0"
-            placeholder=" "
-          />
+        <InputRoot>
+          <InputControl id="link-web-site" />
 
-          <label
-            htmlFor="floating_filled"
-            className="absolute start-4 top-6 z-10 origin-[0] -translate-y-4 scale-75 transform text-black duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-[#8E8E8E] peer-focus:top-6 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-black"
-          >
-            Link do seu site
-          </label>
-        </div>
+          <InputLabel htmlFor="link-web-site">Link do seu site</InputLabel>
+        </InputRoot>
 
         <div className="flex flex-col gap-4 pt-4.5">
           <Button variant="secondary">

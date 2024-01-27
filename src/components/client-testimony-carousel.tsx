@@ -37,7 +37,7 @@ export function ClientTestimonyCarousel() {
             <CarouselItem key={index}>
               <div className="space-y-3">
                 <Quotes />
-                <p className="select-none text-xl font-medium">
+                <p className="select-none text-xl font-medium md:text-2xl">
                   Este é um projeto de plataforma que permite aos usuários tanto
                   se candidatarem a projetos existentes quanto criarem seus
                   próprios projetos para recrutar colaboradores.
@@ -55,10 +55,10 @@ export function ClientTestimonyCarousel() {
                   </div>
 
                   <div className="space-y-2">
-                    <span className="block select-none font-medium leading-tight">
+                    <span className="block select-none font-medium leading-tight md:text-lg">
                       Nome cliente
                     </span>
-                    <span className="block select-none text-sm leading-tight text-text-dark-secondary">
+                    <span className="block select-none text-sm leading-tight text-text-dark-secondary md:text-base">
                       Função e nome da empresa
                     </span>
                   </div>
@@ -73,10 +73,10 @@ export function ClientTestimonyCarousel() {
         <Progress value={current} max={count} />
 
         <div>
-          <span className="text-sm font-medium leading-none text-text-dark-primary">
+          <span className="text-sm font-medium leading-none text-text-dark-primary md:text-base">
             {current}
           </span>
-          <span className="text-sm font-medium leading-none text-text-white-tertiary">
+          <span className="text-sm font-medium leading-none text-text-white-tertiary md:text-base">
             /{count}
           </span>
         </div>

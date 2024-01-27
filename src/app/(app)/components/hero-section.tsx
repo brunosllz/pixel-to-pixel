@@ -24,14 +24,19 @@ export function HeroSection() {
           em Movimento e Impacto Visual
         </p>
 
-        <Button variant="primary" size="lg" className="w-full md:max-w-max">
-          Entrar em contato <ArrowRight size={24} />
+        <Button size="lg" className="w-full md:max-w-max" asChild>
+          <Link href="/contato">
+            <span>
+              Entrar em contato <ArrowRight size={24} />
+            </span>
+          </Link>
         </Button>
 
         <div className="grid grid-cols-3 gap-3">
           <Link
             href="https://www.linkedin.com/in/ui-amaurijunior/"
             className="flex h-[5.5rem] flex-col items-center justify-center gap-2 border border-border-dark-secondary text-text-white-secondary transition-colors hover:border-text-dark-tertiary hover:bg-effect-white-hover"
+            target="_blank"
           >
             <LinkedinLogo />
             Linkedin
@@ -40,6 +45,7 @@ export function HeroSection() {
           <Link
             href="https://www.behance.net/ui_amauri"
             className="flex h-[5.5rem] flex-col items-center justify-center gap-2 border border-border-dark-secondary text-text-white-secondary transition-colors hover:border-text-dark-tertiary hover:bg-effect-white-hover"
+            target="_blank"
           >
             <BehanceLogo />
             Behance
@@ -48,6 +54,7 @@ export function HeroSection() {
           <Link
             href="https://dribbble.com/amaurijunior"
             className="flex h-[5.5rem] flex-col items-center justify-center gap-2 border border-border-dark-secondary text-text-white-secondary transition-colors hover:border-text-dark-tertiary hover:bg-effect-white-hover"
+            target="_blank"
           >
             <DribbleLogo />
             Dribbble
