@@ -1,12 +1,6 @@
 import { FigmaComponent } from '@/assets/figma-component'
 import { NotFound404 } from '@/assets/not-found-404'
 import { Button } from '@/components/ui/button'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
 import { MoreVertical, X } from 'lucide-react'
 import Link from 'next/link'
 
