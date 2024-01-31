@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss'
+import { withTV } from 'tailwind-variants/transformer'
 
-const config = {
+const config = withTV({
   darkMode: ['class'],
   content: [
     './pages/**/*.{ts,tsx}',
@@ -12,7 +13,7 @@ const config = {
   theme: {
     extend: {
       spacing: {
-        container: '77.25rem',
+        container: '78.5rem',
         '4.5': '1.125rem',
         '10.5': '2.625rem',
         '11.5': '2.875rem',
@@ -84,10 +85,25 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        blink: {
+          '50%': { opacity: '0' },
+        },
+        wave: {
+          '0%': { transform: 'rotate(0.0deg)' },
+          '10%': { transform: 'rotate(14deg)' },
+          '20%': { transform: 'rotate(-8deg)' },
+          '30%': { transform: 'rotate(14deg)' },
+          '40%': { transform: 'rotate(-4deg)' },
+          '50%': { transform: 'rotate(10.0deg)' },
+          '60%': { transform: 'rotate(0.0deg)' },
+          '100%': { transform: 'rotate(0.0deg)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'waving-hand': 'wave 2s linear infinite',
+        'blinking-hand': 'blink 1s ease-in-out infinite',
       },
       backgroundImage: {
         'background-grid': "url('/background-grid.png')",
@@ -95,6 +111,6 @@ const config = {
     },
   },
   plugins: [require('tailwindcss-animate')],
-} satisfies Config
+}) satisfies Config
 
 export default config

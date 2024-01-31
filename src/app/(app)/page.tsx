@@ -9,17 +9,19 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel'
-import { Button } from '@/components/ui/button'
 import { ClientTestimonyCarousel } from '@/components/client-testimony-carousel'
 import { HeroSection } from './components/hero-section'
 import { Separator } from '@/components/ui/separator'
 import Image from 'next/image'
+import { ProjectsSection } from './components/projects-section'
 import { BrandSection } from './components/brand-section'
 
 import { Browsers } from '@/assets/browsers'
 import { Devices } from '@/assets/devices'
 import { MobileDevice } from '@/assets/mobile-device'
-import { ArrowUpRight } from 'lucide-react'
+import { GridLayoutFigma } from '@/assets/grid-layout-figma'
+import { ArrowUp } from 'lucide-react'
+import { CommentCursorFigma } from '@/assets/comment-cursor-figma'
 
 const ACCORDION_ITEMS = [
   {
@@ -34,28 +36,35 @@ const ACCORDION_ITEMS = [
     title: 'Ideação',
     description: 'Geração Criativa de Ideias',
     content:
-      'Análises de mercado para identificar tendências e necessidades, combinadas com a compreensão detalhada das metas e requisitos do cliente para alinhar o projeto estrategicamente.',
+      'Sessões de brainstorming para gerar ideias inovadoras, definição de conceitos e estratégias iniciais, incorporando a coleta de inspirações por meio de moodboards para orientar a abordagem criativa do projeto.',
   },
   {
     id: 'Estruturação',
     title: 'Estruturação',
     description: 'Prototipagem e Estruturação Visual',
     content:
-      'Análises de mercado para identificar tendências e necessidades, combinadas com a compreensão detalhada das metas e requisitos do cliente para alinhar o projeto estrategicamente.',
+      'Criação de wireframes e protótipos básicos para a disposição visual do layout, além do desenvolvimento de protótipos interativos para testar funcionalidade e usabilidade.',
   },
   {
     id: 'Estilo',
     title: 'Estilo',
     description: 'Desenvolvimento Estético e Visual',
     content:
-      'Análises de mercado para identificar tendências e necessidades, combinadas com a compreensão detalhada das metas e requisitos do cliente para alinhar o projeto estrategicamente.',
+      'Foco na identidade visual do projeto, incluindo a criação da paleta de cores, tipografia e elementos visuais alinhados à estética planejada.',
   },
   {
     id: 'Iteração',
     title: 'Iteração',
     description: 'Ajustes Iterativos e Feedback',
     content:
-      'Análises de mercado para identificar tendências e necessidades, combinadas com a compreensão detalhada das metas e requisitos do cliente para alinhar o projeto estrategicamente.',
+      'Coleta contínua de feedback do cliente para ajustes e iterações, refinando o design com foco na satisfação e nos requisitos do cliente.',
+  },
+  {
+    id: 'Desenvolvimento',
+    title: 'Desenvolvimento',
+    description: 'Viabilidade e Implementação ',
+    content:
+      'Colaboração estreita com a equipe de desenvolvimento para garantir a viabilidade técnica e a entrega de diretrizes claras para a implementação do design.',
   },
 ]
 
@@ -66,125 +75,82 @@ export default function Home() {
 
       <BrandSection />
 
-      <section className="mx-auto w-full max-w-container px-5 pb-16 pt-14">
-        <h2 className="text-[1.75rem] font-semibold md:text-[2rem]">
-          Projetos que Inspiram e Transformam
-        </h2>
+      <ProjectsSection />
 
-        <div className="space-y-8 divide-y-2 divide-border-white-primary md:space-y-10.5">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <div key={index}>
-              <div className="flex flex-col gap-4 pt-8 md:hidden">
-                <div className="h-[11.25rem] w-full overflow-hidden bg-[#D9D9D9]">
-                  <Image
-                    width={335}
-                    height={180}
-                    src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
-                    alt="Picture of the author"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
+      <section
+        id="o-que-fazemos"
+        className="bg-background-white-secondary py-16 lg:py-28"
+      >
+        <div className="mx-auto w-full max-w-container space-y-10.5 px-5 md:px-8 lg:space-y-14 lg:px-5">
+          <div className="flex items-end justify-between">
+            <h2 className="text-[1.75rem] font-semibold md:text-[2rem] lg:max-w-[37.25rem] lg:text-[2.625rem] lg:leading-tight">
+              Desenvolvendo Experiências Únicas
+            </h2>
 
-                <h3 className="text-lg font-semibold">Dev Experience</h3>
+            <GridLayoutFigma className="hidden lg:block" />
+          </div>
 
-                <p className="mb-2 text-text-dark-secondary">
-                  Este é um projeto de plataforma que permite aos usuários tanto
-                  se candidatarem a projetos existentes quanto criarem seus
-                  próprios projetos para recrutar colaboradores.
+          <div className="space-y-8 lg:space-y-12">
+            <div className="space-y-2 md:space-y-4 lg:flex lg:gap-5 lg:space-y-0">
+              <div className="flex size-16 items-center justify-center bg-background-white pb-2 md:size-[4.25rem] lg:size-[4.5rem]">
+                <Devices className="size-[1.7775rem] md:size-[1.875rem] lg:size-8" />
+              </div>
+
+              <div className="space-y-2 md:space-y-4 lg:flex lg:flex-1 lg:flex-col lg:items-start lg:space-y-2">
+                <h3 className="text-xl font-medium text-text-dark-secondary md:text-[1.375rem] lg:text-2xl">
+                  Websites
+                </h3>
+
+                <p className="text-text-dark-complementary md:text-lg lg:text-xl">
+                  Criamos e redesenhamos websites para contar histórias visuais
+                  envolventes, adaptando-se continuamente para cativar seu
+                  público.
                 </p>
-
-                <Button size="sm" variant="outlined-primary">
-                  Ver projeto <ArrowUpRight size={18} />
-                </Button>
-              </div>
-
-              <div className="hidden md:flex md:flex-col md:gap-6 md:pt-10.5">
-                <div className="flex justify-between gap-9">
-                  <div className="space-y-9">
-                    <h3 className="text-lg font-semibold">Dev Experience</h3>
-
-                    <Button size="sm" variant="outlined-primary">
-                      Ver projeto <ArrowUpRight size={18} />
-                    </Button>
-                  </div>
-
-                  <p className="max-w-[26.25rem] text-text-dark-secondary">
-                    Este é um projeto de plataforma que permite aos usuários
-                    tanto se candidatarem a projetos existentes quanto criarem
-                    seus próprios projetos para recrutar colaboradores.
-                  </p>
-                </div>
-
-                <div className="col-span-2 h-[11.25rem] w-full overflow-hidden bg-[#D9D9D9]">
-                  <Image
-                    width={335}
-                    height={180}
-                    src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
-                    alt="Picture of the author"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
 
-      <section className="bg-background-white-secondary py-16">
-        <div className="mx-auto w-full max-w-container space-y-10.5 px-5">
-          <h2 className="text-[1.75rem] font-semibold  md:text-[2rem]">
-            Desenvolvendo Experiências Únicas
-          </h2>
-
-          <div className="space-y-8">
-            <div className="space-y-2">
-              <div className="flex size-16 items-center justify-center bg-background-white pb-2 md:size-[4.25rem]">
-                <Devices className="size-[1.7775rem] md:size-[1.875rem]" />
+            <div className="space-y-2 md:space-y-4 lg:flex lg:gap-5 lg:space-y-0">
+              <div className="flex size-16 items-center justify-center bg-background-white pb-2 md:size-[4.25rem] lg:size-[4.5rem]">
+                <Browsers className="size-[1.7775rem] md:size-[1.875rem] lg:size-8" />
               </div>
 
-              <h3 className="text-xl font-medium text-text-dark-secondary md:text-[1.375rem]">
-                Websites
-              </h3>
-              <p className="text-text-dark-complementary md:text-lg">
-                Criamos e redesenhamos websites para contar histórias visuais
-                envolventes, adaptando-se continuamente para cativar seu
-                público.
-              </p>
+              <div className="space-y-2 md:space-y-4 lg:flex lg:flex-1 lg:flex-col lg:items-start lg:space-y-2">
+                <h3 className="text-xl font-medium text-text-dark-secondary md:text-[1.375rem] lg:text-2xl">
+                  Landing Pages
+                </h3>
+
+                <p className="text-text-dark-complementary md:text-lg lg:text-xl">
+                  Desenvolvemos landing pages atrativas, direcionadas à
+                  conversão, adaptadas para cativar seu público e impulsionar
+                  ações.
+                </p>
+              </div>
             </div>
 
-            <div className="space-y-2">
-              <div className="flex size-16 items-center justify-center bg-background-white pb-2">
-                <Browsers width={28.44} height={28.44} />
+            <div className="space-y-2 md:space-y-4 lg:flex lg:gap-5 lg:space-y-0">
+              <div className="flex size-16 items-center justify-center bg-background-white pb-2 md:size-[4.25rem] lg:size-[4.5rem]">
+                <MobileDevice className="size-[1.7775rem] md:size-[1.875rem] lg:size-8" />
               </div>
-              <h3 className="text-xl font-medium text-text-dark-secondary md:text-[1.375rem]">
-                Landing Pages
-              </h3>
-              <p className="text-text-dark-complementary md:text-lg">
-                Desenvolvemos landing pages atrativas, direcionadas à conversão,
-                adaptadas para cativar seu público e impulsionar ações.
-              </p>
-            </div>
 
-            <div className="space-y-2">
-              <div className="flex size-16 items-center justify-center bg-background-white pb-2">
-                <MobileDevice width={28.44} height={28.44} />
+              <div className="space-y-2 md:space-y-4 lg:flex lg:flex-1 lg:flex-col lg:items-start lg:space-y-2">
+                <h3 className="text-xl font-medium text-text-dark-secondary md:text-[1.375rem] lg:text-2xl">
+                  Apps
+                </h3>
+
+                <p className="text-text-dark-complementary md:text-lg lg:text-xl">
+                  Desenvolvemos apps cativantes, centrados na experiência do
+                  usuário, combinando usabilidade e inovação para superar
+                  expectativas.
+                </p>
               </div>
-              <h3 className="text-xl font-medium text-text-dark-secondary md:text-[1.375rem]">
-                Apps
-              </h3>
-              <p className="text-text-dark-complementary md:text-lg">
-                Desenvolvemos apps cativantes, centrados na experiência do
-                usuário, combinando usabilidade e inovação para superar
-                expectativas.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="w-full bg-background-dark">
-        <div className="mx-auto w-full max-w-container space-y-10.5 px-5 py-16">
-          <h2 className="text-[1.75rem] font-semibold text-text-white-primary md:text-[2rem]">
+      <section id="processos" className="w-full bg-background-dark">
+        <div className="mx-auto w-full max-w-container space-y-10.5 px-5 py-16 md:px-8 lg:px-5 lg:py-28">
+          <h2 className="text-[1.75rem] font-semibold text-text-white-primary md:text-[2rem] lg:max-w-[32rem] lg:text-[2.625rem] lg:leading-tight">
             Nossa Maneira de Construir
           </h2>
 
@@ -199,7 +165,7 @@ export default function Home() {
                 >
                   <AccordionTrigger>
                     <div className="flex flex-col items-start">
-                      <h3 className="text-start text-xl font-medium text-text-white-primary md:text-[1.375rem]">
+                      <h3 className="text-start text-xl font-medium text-text-white-primary md:text-[1.375rem] lg:text-2xl">
                         {item.title}
                       </h3>
                       <span className="text-start text-sm text-text-white-tertiary md:text-base">
@@ -209,7 +175,7 @@ export default function Home() {
                   </AccordionTrigger>
 
                   <AccordionContent>
-                    <p className="text-text-white-primary md:text-lg">
+                    <p className="text-text-white-primary md:text-lg lg:text-xl">
                       {item.content}
                     </p>
                   </AccordionContent>
@@ -220,19 +186,56 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-container space-y-10.5 px-5 py-16">
-        <h2 className="text-[1.75rem] font-semibold md:text-[2rem]">
-          Experiências dos Nosso Clientes
-        </h2>
+      <section
+        id="feedbacks"
+        className="mx-auto w-full max-w-container space-y-10.5 px-5 py-16 lg:space-y-14 lg:py-28"
+      >
+        <div className="flex items-end justify-between">
+          <h2 className="text-[1.75rem] font-semibold md:text-[2rem] lg:max-w-[32rem] lg:text-[2.625rem] lg:leading-tight">
+            Experiências dos Nosso Clientes
+          </h2>
+
+          <div className="hidden items-center gap-4 lg:flex">
+            <div className="flex h-14 w-[18.5rem] items-center justify-between rounded-md bg-brand-primary px-4 py-2 pl-5">
+              <span className="relative pl-2 text-sm text-text-white-secondary before:absolute before:left-0 before:top-1/2 before:h-4.5 before:w-0.5 before:-translate-y-1/2 before:animate-blinking-hand before:bg-text-white-primary">
+                Add comentário
+              </span>
+
+              <div className="rounded-full bg-background-white p-1.5">
+                <ArrowUp
+                  size={18}
+                  strokeWidth={3}
+                  className="text-brand-primary"
+                />
+              </div>
+            </div>
+
+            <CommentCursorFigma />
+          </div>
+        </div>
 
         <ClientTestimonyCarousel />
       </section>
 
       <section className="w-full bg-background-white-secondary">
-        <div className="mx-auto w-full max-w-container space-y-10.5 px-5 py-16">
-          <h2 className="text-[1.75rem]  font-semibold md:text-[2rem]">
-            Telas de Destaque que Inspiram
-          </h2>
+        <div className="mx-auto w-full max-w-container space-y-10.5 px-5 py-16 lg:space-y-14 lg:py-28">
+          <div className="flex items-end justify-between">
+            <h2 className="text-[1.75rem] font-semibold md:text-[2rem] lg:max-w-[32rem] lg:text-[2.625rem] lg:leading-tight">
+              Telas de Destaque que Inspiram
+            </h2>
+
+            <div className="group relative hidden max-w-[12.5rem] grid-cols-5 before:absolute before:left-1/2 before:top-1/2 before:h-full before:w-full before:-translate-x-1/2 before:-translate-y-1/2 before:transition-colors before:duration-200 hover:before:bg-[rgb(0,0,0)]/80 lg:grid">
+              {Array.from({ length: 15 }).map((_, index) => (
+                <div key={index} className="h-7 w-10 odd:bg-brand-primary" />
+              ))}
+
+              <div className="absolute left-1/2 top-1/2 hidden h-8 w-max -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-md border border-border-white-primary p-2 transition-transform duration-300 group-hover:flex">
+                <span className="block text-xs font-medium text-text-white-primary">
+                  Escolher Imagem
+                </span>
+              </div>
+            </div>
+          </div>
 
           <Carousel
             opts={{
@@ -242,13 +245,13 @@ export default function Home() {
             }}
           >
             <CarouselContent>
-              {Array.from({ length: 5 }).map((_, index) => (
+              {Array.from({ length: 10 }).map((_, index) => (
                 <CarouselItem
                   key={index}
                   className="group max-w-max transition-all lg:saturate-0 lg:hover:saturate-100"
                 >
-                  <div className="w-[13.75rem] space-y-4">
-                    <div className="h-[17.5rem] w-full bg-[#D9D9D9]">
+                  <div className="w-[13.75rem] space-y-4  md:w-[15rem] lg:w-[17.5rem]">
+                    <div className="h-[17.5rem] w-full bg-[#D9D9D9] md:h-[18.75rem] lg:h-[20rem]">
                       <Image
                         width={220}
                         height={280}
@@ -260,7 +263,7 @@ export default function Home() {
                     </div>
 
                     <div className="space-y-2">
-                      <span className="line-clamp-1 text-lg font-medium">
+                      <span className="line-clamp-1 text-lg font-medium leading-none">
                         Nome do projeto no dribble
                       </span>
 

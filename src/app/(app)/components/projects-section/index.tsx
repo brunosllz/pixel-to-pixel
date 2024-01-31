@@ -1,0 +1,82 @@
+import { FigmaButton } from '@/assets/figma-button'
+import { Button } from '@/components/ui/button'
+import { ArrowUpRight } from 'lucide-react'
+import Image from 'next/image'
+
+export function ProjectsSection() {
+  return (
+    <section
+      id="projetos"
+      className="mx-auto w-full max-w-container px-5 pb-16 pt-14 md:px-8 lg:px-5"
+    >
+      <div className="flex items-end justify-between lg:mb-[3.6875rem]">
+        <h2 className="text-[1.75rem] font-semibold md:text-[2rem] lg:max-w-[37.25rem] lg:text-[2.625rem] lg:leading-tight">
+          Projetos que Inspiram e Transformam
+        </h2>
+
+        <FigmaButton className="hidden lg:block" />
+      </div>
+
+      <div className="space-y-8 divide-y-2 divide-border-white-primary md:space-y-10.5 lg:relative">
+        {Array.from({ length: 5 }).map((_, index) => (
+          <div
+            key={index}
+            className="bg-background-white lg:sticky lg:top-0 lg:h-screen"
+          >
+            <div className="flex flex-col gap-4 pt-8 md:hidden">
+              <div className="h-[11.25rem] w-full overflow-hidden bg-[#D9D9D9]">
+                <Image
+                  width={335}
+                  height={180}
+                  src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
+                  alt="Picture of the author"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              <h3 className="text-lg font-semibold">Dev Experience</h3>
+
+              <p className="mb-2 text-text-dark-secondary">
+                Este é um projeto de plataforma que permite aos usuários tanto
+                se candidatarem a projetos existentes quanto criarem seus
+                próprios projetos para recrutar colaboradores.
+              </p>
+
+              <Button size="sm" variant="outlined-primary">
+                Ver projeto <ArrowUpRight size={18} />
+              </Button>
+            </div>
+
+            <div className="hidden  md:flex md:flex-col md:gap-6 md:pt-10.5 lg:absolute lg:left-1/2 lg:top-1/2 lg:w-full lg:-translate-x-1/2 lg:-translate-y-1/2 lg:gap-10.5 lg:pt-16">
+              <div className="flex justify-between gap-9">
+                <div className="space-y-9 lg:space-y-13">
+                  <h3 className="text-lg font-semibold">Dev Experience</h3>
+
+                  <Button size="sm" variant="outlined-primary">
+                    Ver projeto <ArrowUpRight size={18} />
+                  </Button>
+                </div>
+
+                <p className="max-w-[26.25rem] text-text-dark-secondary lg:max-w-[50rem] lg:text-2xl">
+                  Este é um projeto de plataforma que permite aos usuários tanto
+                  se candidatarem a projetos existentes quanto criarem seus
+                  próprios projetos para recrutar colaboradores.
+                </p>
+              </div>
+
+              <div className="col-span-2 h-[11.25rem] w-full overflow-hidden bg-[#D9D9D9] md:h-[17.5rem] lg:h-[30rem]">
+                <Image
+                  width={335}
+                  height={180}
+                  src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
+                  alt="Picture of the author"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}

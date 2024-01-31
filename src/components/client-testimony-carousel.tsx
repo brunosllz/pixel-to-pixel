@@ -30,21 +30,22 @@ export function ClientTestimonyCarousel() {
   }, [api])
 
   return (
-    <div className="space-y-10.5">
+    <div className="space-y-10.5 lg:space-y-14">
       <Carousel setApi={setApi}>
         <CarouselContent>
           {Array.from({ length: 5 }).map((_, index) => (
             <CarouselItem key={index}>
-              <div className="space-y-3">
+              <div className="space-y-3 lg:space-y-4">
                 <Quotes />
+
                 <p className="select-none text-xl font-medium md:text-2xl">
                   Este é um projeto de plataforma que permite aos usuários tanto
                   se candidatarem a projetos existentes quanto criarem seus
                   próprios projetos para recrutar colaboradores.
                 </p>
 
-                <div className="flex items-center gap-5 pt-[1.875rem]">
-                  <div className="size-11.5 bg-[#D9D9D9]">
+                <div className="flex items-center gap-5 pt-[1.875rem] lg:pt-[1.625rem]">
+                  <div className="size-11.5 bg-[#D9D9D9] lg:size-14">
                     <Image
                       width={50}
                       height={50}
@@ -55,10 +56,10 @@ export function ClientTestimonyCarousel() {
                   </div>
 
                   <div className="space-y-2">
-                    <span className="block select-none font-medium leading-tight md:text-lg">
+                    <span className="block select-none font-medium leading-tight md:text-lg lg:text-xl">
                       Nome cliente
                     </span>
-                    <span className="block select-none text-sm leading-tight text-text-dark-secondary md:text-base">
+                    <span className="block select-none text-sm leading-tight text-text-dark-secondary md:text-base lg:text-lg">
                       Função e nome da empresa
                     </span>
                   </div>
