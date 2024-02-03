@@ -12,7 +12,7 @@ export function MobileDevice(props: SVGProps<SVGSVGElement>) {
     >
       <g
         clipPath="url(#clip0_505_6665)"
-        stroke="#181818"
+        stroke="currentColor"
         strokeWidth={2.66667}
         strokeLinecap="round"
         strokeLinejoin="round"

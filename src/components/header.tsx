@@ -41,7 +41,7 @@ export function Header() {
       data-is-white-background={isWhiteBackGround}
       className="w-full bg-background-dark pt-5 data-[is-white-background=true]:bg-background-white md:pt-8 lg:pt-10.5"
     >
-      <div className="mx-auto flex w-full max-w-container items-center justify-between px-5">
+      <div className="mx-auto flex w-full max-w-container items-center justify-between px-5 md:px-8 lg:px-5">
         <Link href="/">
           {isWhiteBackGround ? (
             <PixelToPixelDarkLogo className="size-10.5" />
@@ -59,7 +59,8 @@ export function Header() {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="flex items-center justify-center gap-2 text-center text-text-white-secondary transition-colors hover:text-text-white-primary focus:underline focus:outline-none"
+                    data-is-white-background={isWhiteBackGround}
+                    className="flex items-center justify-center gap-2 text-center text-text-white-secondary transition-colors hover:text-text-white-primary focus:underline focus:outline-none data-[is-white-background=true]:text-border-dark-secondary"
                   >
                     {label}
                   </Link>

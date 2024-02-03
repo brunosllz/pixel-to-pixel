@@ -28,7 +28,7 @@ const SOCIAL_LINKS = [
 export function HeroSection() {
   return (
     <section className="w-full bg-background-dark">
-      <div className="mx-auto w-full max-w-container space-y-10.5 px-5 pb-16 pt-10.5 md:px-8 lg:space-y-16 lg:px-5 lg:py-28">
+      <div className="mx-auto w-full max-w-container space-y-10.5 px-5 pb-16 pt-10.5 md:px-8 md:pt-14 lg:space-y-16 lg:px-5 lg:py-28">
         <h1 className="text-[2.125rem] font-medium text-text-white-primary md:text-[2.625rem] lg:text-[4.25rem] lg:leading-tight">
           Transformando ideias em experiências visuais cativantes,{' '}
           <span className="text-[2.125rem] text-text-white-tertiary md:text-[2.625rem] lg:text-[4.25rem]">

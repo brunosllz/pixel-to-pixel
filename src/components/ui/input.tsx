@@ -22,7 +22,7 @@ const InputControl = React.forwardRef<HTMLInputElement, InputProps>(
       <input
         type={type}
         className={cn(
-          'peer h-16 w-full appearance-none border border-[#D9D9D9] bg-transparent px-4 pb-[11.5px] pt-[31.5px] leading-none text-gray-900 transition-all hover:border-black focus:border-black focus:shadow-[4px_4px_0px_0px_#040404] focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed',
+          'peer h-16 w-full appearance-none border border-border-white-secondary bg-transparent px-4 pb-[11.5px] pt-[31.5px] leading-none text-gray-900 transition-all hover:border-black focus:border-black focus:shadow-[4px_4px_0px_0px_#040404] focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed',
           className,
         )}
         placeholder=" "

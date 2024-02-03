@@ -2,6 +2,7 @@ import { FigmaButton } from '@/assets/figma-button'
 import { Button } from '@/components/ui/button'
 import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export function ProjectsSection() {
   return (
@@ -52,8 +53,12 @@ export function ProjectsSection() {
                 <div className="space-y-9 lg:space-y-13">
                   <h3 className="text-lg font-semibold">Dev Experience</h3>
 
-                  <Button size="sm" variant="outlined-primary">
-                    Ver projeto <ArrowUpRight size={18} />
+                  <Button size="sm" variant="outlined-primary" asChild>
+                    <Link href="/projeto/w">
+                      <span>
+                        Ver projeto <ArrowUpRight size={18} />
+                      </span>
+                    </Link>
                   </Button>
                 </div>
 

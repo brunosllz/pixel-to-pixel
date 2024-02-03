@@ -39,27 +39,57 @@ export function ProjectsInspirationsCarousel() {
             {Array.from({ length: 5 }).map((_, index) => (
               <CarouselItem key={index}>
                 <div className="border border-border-white-secondary">
-                  <div className="px-5 py-8">
-                    <p className="text-xl font-medium text-text-dark-secondary">
-                      Este é um projeto de plataforma que permite aos usuários
-                      tanto se candidatarem a projetos existentes quanto criarem
-                      seus próprios projetos para recrutar colaboradores.
-                    </p>
-                  </div>
-
-                  <Separator className="bg-border-white-secondary" />
-
-                  <div className="space-y-8 px-5 py-8">
-                    <div className="flex size-[4.5rem] items-center justify-center bg-background-white">
-                      <MobileDevice width={32} height={32} />
+                  <div className="md:hidden">
+                    <div className="px-5 py-8">
+                      <p className="text-xl font-medium text-text-dark-secondary">
+                        Este é um projeto de plataforma que permite aos usuários
+                        tanto se candidatarem a projetos existentes quanto
+                        criarem seus próprios projetos para recrutar
+                        colaboradores.
+                      </p>
                     </div>
 
-                    <span className="block pb-2 text-xl font-medium">
-                      Estante Otaku
-                    </span>
-                    <span className="text-lg leading-none text-text-dark-complementary">
-                      App
-                    </span>
+                    <Separator className="bg-border-white-secondary" />
+
+                    <div className="space-y-8 px-5 py-8">
+                      <div className="flex size-[4.5rem] items-center justify-center bg-background-white">
+                        <MobileDevice width={32} height={32} />
+                      </div>
+
+                      <span className="block pb-2 text-xl font-medium">
+                        Estante Otaku
+                      </span>
+                      <span className="text-lg leading-none text-text-dark-complementary">
+                        App
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="hidden md:flex">
+                    <div className="max-w-[18rem] space-y-8 border-r border-border-white-secondary p-6">
+                      <div className="flex size-[4.5rem] items-center justify-center bg-background-white">
+                        <MobileDevice width={32} height={32} />
+                      </div>
+
+                      <div>
+                        <span className="line-clamp-1 text-xl font-medium">
+                          Estante Otaku
+                        </span>
+
+                        <span className="mt-2 block text-lg leading-none text-text-dark-complementary">
+                          App
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex-1 space-y-8 p-6">
+                      <p className="text-xl font-medium text-text-dark-secondary">
+                        Este é um projeto de plataforma que permite aos usuários
+                        tanto se candidatarem a projetos existentes quanto
+                        criarem seus próprios projetos para recrutar
+                        colaboradores.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </CarouselItem>
@@ -79,7 +109,7 @@ export function ProjectsInspirationsCarousel() {
                 </span>
               </div>
 
-              <div className="space-x-3">
+              <div className="flex gap-3">
                 <Button
                   variant="icon"
                   size="icon"

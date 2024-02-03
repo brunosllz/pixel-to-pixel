@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 
 const buttonVariants = tv(
   {
-    base: 'group relative flex items-center justify-center overflow-hidden whitespace-nowrap rounded-full font-medium transition-colors before:absolute before:inset-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-200 focus-visible:outline-none focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 [&_span]:z-50 [&_span]:inline-flex [&_span]:items-center ',
+    base: 'group relative flex items-center justify-center overflow-hidden whitespace-nowrap rounded-full font-semibold transition-colors before:absolute before:inset-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-200 focus-visible:outline-none focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 [&_span]:z-50 [&_span]:inline-flex [&_span]:items-center ',
     variants: {
       variant: {
         primary:

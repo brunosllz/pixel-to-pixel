@@ -14,9 +14,9 @@ export default function Project() {
   return (
     <div className="w-full">
       <section className="w-full bg-background-dark">
-        <div className="mx-auto w-full max-w-container space-y-10.5 px-5">
+        <div className="mx-auto w-full max-w-container space-y-10.5 px-5 pt-10.5 md:px-8 md:pt-14 lg:pt-28">
           <div className="space-y-5">
-            <h1 className="text-3xl font-medium text-text-white-primary">
+            <h1 className="text-3xl font-medium text-text-white-primary md:text-4xl">
               Dev Experience
             </h1>
 
@@ -38,7 +38,7 @@ export default function Project() {
 
           <div className="flex items-center gap-5">
             <div className="flex size-[3.25rem] items-center justify-center bg-background-white">
-              <Devices width={22.75} height={22.75} />
+              <Devices className="size-6" />
             </div>
 
             <div className="flex flex-col gap-2">
@@ -51,7 +51,7 @@ export default function Project() {
             </div>
           </div>
 
-          <div className="h-[13.75rem] w-full bg-[#D9D9D9]">
+          <div className="h-[13.75rem] w-full bg-[#D9D9D9] md:h-[26.25rem]">
             <Image
               src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
               alt=""
@@ -63,11 +63,13 @@ export default function Project() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-container space-y-8 px-5 pb-8 pt-16">
+      <section className="mx-auto w-full max-w-container space-y-8 px-5 pb-8 pt-16 md:px-8 lg:px-5">
         <div className="space-y-10.5">
-          <h2 className="text-[1.75rem] font-semibold">Destaques da Entrega</h2>
+          <h2 className="text-[1.75rem] font-semibold md:max-w-[26.25rem] md:text-[2rem]">
+            Destaques da Entrega
+          </h2>
 
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium md:text-xl">
             Participei ativamente na criação da interface de usuário da
             plataforma Dev Experience. Apliquei as melhores práticas de design
             para garantir uma jornada do usuário agradável, desde o acesso à
@@ -79,7 +81,7 @@ export default function Project() {
         <Separator />
 
         <div className="space-y-6">
-          <p className="text-lg font-medium text-text-dark-secondary">
+          <p className="text-lg font-medium text-text-dark-secondary md:text-xl">
             “Este é um projeto de plataforma que permite aos usuários tanto se
             candidatarem a projetos existentes quanto criarem seus próprios
             projetos para recrutar colaboradores.”
@@ -97,11 +99,11 @@ export default function Project() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <span className="font-medium text-text-dark-primary">
-                Website
+              <span className="font-medium leading-tight text-text-dark-primary md:text-lg">
+                Nome cliente
               </span>
               <span className="text-sm leading-none text-text-dark-secondary">
-                UI Design
+                Função e nome da empresa
               </span>
             </div>
           </div>
@@ -109,35 +111,35 @@ export default function Project() {
       </section>
 
       <section className="mx-auto w-full max-w-container">
-        <div className="border-b border-border-white-primary px-5 pb-10.5 pt-8">
+        <div className="border-b border-border-white-primary px-5 pb-10.5 pt-8 md:px-8">
           <div className="grid grid-cols-2 gap-3">
-            <div className="col-span-2 h-[11.25rem] bg-[#D9D9D9]" />
-            <div className="h-[11.25rem] bg-[#D9D9D9]" />
-            <div className="h-[11.25rem] bg-[#D9D9D9]" />
+            <div className="col-span-2 h-[11.25rem] bg-[#D9D9D9] md:h-[23.75rem]" />
+            <div className="h-[11.25rem] bg-[#D9D9D9] md:h-[13.75rem]" />
+            <div className="h-[11.25rem] bg-[#D9D9D9] md:h-[13.75rem]" />
           </div>
         </div>
       </section>
 
       <section className="mx-auto w-full max-w-container space-y-8 px-5 pb-16 pt-10.5">
         <div className="flex items-center gap-3">
-          <div className="flex size-[3.25rem] items-center justify-center bg-background-white">
-            <Devices width={22.75} height={22.75} />
+          <div className="flex size-[3.25rem] items-center justify-center bg-background-white md:size-14">
+            <Devices className="size-[1.421875rem] md:size-6" />
           </div>
 
-          <h2 className="text-lg font-semibold">Resultado Final</h2>
+          <h2 className="text-lg font-medium">Resultado Final</h2>
         </div>
 
         <div className="grid-cols grid gap-3">
-          <div className="col-span-2 h-[11.25rem] w-full bg-[#D9D9D9]" />
-          <div className="h-28 w-full bg-[#D9D9D9]" />
-          <div className="h-28 w-full bg-[#D9D9D9]" />
-          <div className="col-span-2 h-[22.5rem] w-full bg-[#D9D9D9]" />
+          <div className="col-span-2 h-[11.25rem] w-full bg-[#D9D9D9] md:h-[23.75rem]" />
+          <div className="h-28 w-full bg-[#D9D9D9] md:h-[13.75rem]" />
+          <div className="h-28 w-full bg-[#D9D9D9] md:h-[13.75rem]" />
+          <div className="col-span-2 h-[22.5rem] w-full bg-[#D9D9D9] md:h-[23.75rem]" />
         </div>
       </section>
 
       <section className="w-full bg-background-white-secondary">
-        <div className="mx-auto w-full max-w-container space-y-10.5 px-5 py-16">
-          <h2 className="text-[1.75rem] font-semibold leading-tight">
+        <div className="mx-auto w-full max-w-container space-y-10.5 px-5 py-16 md:space-y-14 md:px-8 lg:px-5">
+          <h2 className="max-w-[32rem] text-[1.75rem] font-semibold leading-tight md:text-[2rem]">
             Mais dos Projetos que Inspiram
           </h2>
 
