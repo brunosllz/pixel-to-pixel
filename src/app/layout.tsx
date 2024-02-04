@@ -13,7 +13,31 @@ export const metadata: Metadata = {
     template: '%s | Pixel to Pixel',
     default: 'Pixel to Pixel',
   },
-  description: 'Amauri',
+  authors: [
+    {
+      name: 'Bruno Silveira Luiz',
+      url: 'https://linkedin.com/in/bruno-silveira-luiz',
+    },
+    {
+      name: 'Amauri Junior',
+      url: 'https://www.linkedin.com/in/ui-amaurijunior/',
+    },
+  ],
+  description:
+    'Transformando ideias em experiências visuais cativantes, nosso design encanta, conecta e simplifica.',
+  creator: 'Bruno Silveira Luiz',
+  keywords: [
+    'Design de Interface do Usuário',
+    'Portfólio de Experiência do Usuário',
+    'Mostra de Design Interativo',
+    'Soluções Criativas de UX',
+    'Design Responsivo de Sites',
+    'Projetos Inovadores de UI/UX',
+    'Design de Produtos Digitais',
+    'Design Centrado no Usuário',
+    'Expertise em Design Visual',
+    'Prototipagem e Wireframing',
+  ],
 }
 
 export default function RootLayout({

@@ -71,7 +71,11 @@ export function ClientTestimonyCarousel() {
       </Carousel>
 
       <div className="space-y-4">
-        <Progress value={current} max={count} />
+        <Progress
+          value={current}
+          max={count}
+          className="md:max-w-[20.9375rem]"
+        />
 
         <div>
           <span className="text-sm font-medium leading-none text-text-dark-primary md:text-base">

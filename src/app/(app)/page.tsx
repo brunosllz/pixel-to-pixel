@@ -188,7 +188,7 @@ export default function Home() {
 
       <section
         id="feedbacks"
-        className="mx-auto w-full max-w-container space-y-10.5 px-5 py-16 lg:space-y-14 lg:py-28"
+        className="mx-auto w-full max-w-container space-y-10.5 px-5 py-16 md:px-8 lg:space-y-14 lg:px-5 lg:py-28"
       >
         <div className="flex items-end justify-between">
           <h2 className="text-[1.75rem] font-semibold md:text-[2rem] lg:max-w-[32rem] lg:text-[2.625rem] lg:leading-tight">
@@ -218,8 +218,8 @@ export default function Home() {
       </section>
 
       <section className="w-full bg-background-white-secondary">
-        <div className="mx-auto w-full max-w-container space-y-10.5 px-5 py-16 lg:space-y-14 lg:py-28">
-          <div className="flex items-end justify-between">
+        <div className="mx-auto w-full max-w-container space-y-10.5 py-16 lg:space-y-14 lg:py-28">
+          <div className="flex items-end justify-between px-5 md:px-8 lg:px-5">
             <h2 className="text-[1.75rem] font-semibold md:text-[2rem] lg:max-w-[32rem] lg:text-[2.625rem] lg:leading-tight">
               Telas de Destaque que Inspiram
             </h2>
@@ -244,7 +244,7 @@ export default function Home() {
               containScroll: 'trimSnaps',
             }}
           >
-            <CarouselContent>
+            <CarouselContent className="mr-5 pl-5 md:mr-8 md:pl-8 lg:mr-5 lg:pl-5">
               {Array.from({ length: 10 }).map((_, index) => (
                 <CarouselItem
                   key={index}

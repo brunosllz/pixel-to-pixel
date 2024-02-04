@@ -120,7 +120,7 @@ export default function Project() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-container space-y-8 px-5 pb-16 pt-10.5">
+      <section className="mx-auto w-full max-w-container space-y-8 px-5 pb-16 pt-10.5 md:px-8 lg:px-5">
         <div className="flex items-center gap-3">
           <div className="flex size-[3.25rem] items-center justify-center bg-background-white md:size-14">
             <Devices className="size-[1.421875rem] md:size-6" />
@@ -139,7 +139,7 @@ export default function Project() {
 
       <section className="w-full bg-background-white-secondary">
         <div className="mx-auto w-full max-w-container space-y-10.5 px-5 py-16 md:space-y-14 md:px-8 lg:px-5">
-          <h2 className="max-w-[32rem] text-[1.75rem] font-semibold leading-tight md:text-[2rem]">
+          <h2 className="text-[1.75rem] font-semibold leading-tight md:max-w-[27.8125rem] md:text-[2rem]">
             Mais dos Projetos que Inspiram
           </h2>
 

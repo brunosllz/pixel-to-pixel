@@ -31,7 +31,7 @@ export function Footer() {
 
   return (
     <footer className="w-full bg-background-dark pb-6 pt-16 md:pb-12 lg:pt-28">
-      <div className="mx-auto w-full max-w-container px-5">
+      <div className="mx-auto w-full max-w-container px-5 md:px-8 lg:px-5">
         <PixelToPixelWhiteLogo width={48} height={48} />
 
         <div className="lg:mt-8 lg:flex lg:justify-between">
