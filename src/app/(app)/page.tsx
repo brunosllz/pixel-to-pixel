@@ -1,9 +1,5 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import dynamic from 'next/dynamic'
+
 import {
   Carousel,
   CarouselContent,
@@ -11,7 +7,6 @@ import {
 } from '@/components/ui/carousel'
 import { ClientTestimonyCarousel } from '@/components/client-testimony-carousel'
 import { HeroSection } from './components/hero-section'
-import { Separator } from '@/components/ui/separator'
 import Image from 'next/image'
 import { ProjectsSection } from './components/projects-section'
 import { BrandSection } from './components/brand-section'
@@ -23,50 +18,7 @@ import { GridLayoutFigma } from '@/assets/grid-layout-figma'
 import { ArrowUp } from 'lucide-react'
 import { CommentCursorFigma } from '@/assets/comment-cursor-figma'
 
-const ACCORDION_ITEMS = [
-  {
-    id: 'Pesquisa',
-    title: 'Pesquisa',
-    description: 'Compreensão Profunda e Estratégica',
-    content:
-      'Análises de mercado para identificar tendências e necessidades, combinadas com a compreensão detalhada das metas e requisitos do cliente para alinhar o projeto estrategicamente.',
-  },
-  {
-    id: 'Ideação',
-    title: 'Ideação',
-    description: 'Geração Criativa de Ideias',
-    content:
-      'Sessões de brainstorming para gerar ideias inovadoras, definição de conceitos e estratégias iniciais, incorporando a coleta de inspirações por meio de moodboards para orientar a abordagem criativa do projeto.',
-  },
-  {
-    id: 'Estruturação',
-    title: 'Estruturação',
-    description: 'Prototipagem e Estruturação Visual',
-    content:
-      'Criação de wireframes e protótipos básicos para a disposição visual do layout, além do desenvolvimento de protótipos interativos para testar funcionalidade e usabilidade.',
-  },
-  {
-    id: 'Estilo',
-    title: 'Estilo',
-    description: 'Desenvolvimento Estético e Visual',
-    content:
-      'Foco na identidade visual do projeto, incluindo a criação da paleta de cores, tipografia e elementos visuais alinhados à estética planejada.',
-  },
-  {
-    id: 'Iteração',
-    title: 'Iteração',
-    description: 'Ajustes Iterativos e Feedback',
-    content:
-      'Coleta contínua de feedback do cliente para ajustes e iterações, refinando o design com foco na satisfação e nos requisitos do cliente.',
-  },
-  {
-    id: 'Desenvolvimento',
-    title: 'Desenvolvimento',
-    description: 'Viabilidade e Implementação ',
-    content:
-      'Colaboração estreita com a equipe de desenvolvimento para garantir a viabilidade técnica e a entrega de diretrizes claras para a implementação do design.',
-  },
-]
+const ProcessSectionA = dynamic(() => import('./components/process-section'))
 
 export default function Home() {
   return (
@@ -148,43 +100,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="processos" className="w-full bg-background-dark">
-        <div className="mx-auto w-full max-w-container space-y-10.5 px-5 py-16 md:px-8 lg:px-5 lg:py-28">
-          <h2 className="text-[1.75rem] font-semibold text-text-white-primary md:text-[2rem] lg:max-w-[32rem] lg:text-[2.625rem] lg:leading-tight">
-            Nossa Maneira de Construir
-          </h2>
-
-          <div>
-            <Separator className="bg-border-white-primary" />
-            <Accordion type="single" collapsible>
-              {ACCORDION_ITEMS.map((item) => (
-                <AccordionItem
-                  key={item.id}
-                  value={item.id}
-                  className="[&_button]:last:pb-0 [&_button]:last:[&[data-state=open]]:pb-5 [&_div]:last:pb-0"
-                >
-                  <AccordionTrigger>
-                    <div className="flex flex-col items-start">
-                      <h3 className="text-start text-xl font-medium text-text-white-primary md:text-[1.375rem] lg:text-2xl">
-                        {item.title}
-                      </h3>
-                      <span className="text-start text-sm text-text-white-tertiary md:text-base">
-                        {item.description}
-                      </span>
-                    </div>
-                  </AccordionTrigger>
-
-                  <AccordionContent>
-                    <p className="text-text-white-primary md:text-lg lg:text-xl">
-                      {item.content}
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
+      <ProcessSectionA />
 
       <section
         id="feedbacks"

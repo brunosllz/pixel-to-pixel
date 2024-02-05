@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   return (
-    <div className="mx-auto w-full max-w-container px-5 pb-16 pt-10.5 md:px-8 md:pt-14 lg:px-5 lg:pt-28">
+    <div className="mx-auto w-full max-w-container px-5 pb-16 pt-10.5 md:px-8 md:pt-14 lg:grid lg:grid-cols-[minmax(19.5rem,32rem)_minmax(34.75rem,1fr)] lg:gap-28 lg:px-5 lg:py-28">
       <div className="space-y-6 pb-8 md:pb-14">
         <h2 className="text-[1.75rem] font-semibold leading-tight md:max-w-[26.25rem] md:text-[2rem]">
           Trasnforme Suas Ideias em Pixels
@@ -30,13 +30,13 @@ export default function Contact() {
         <Link
           href="https://wa.me/5532984816534"
           target="_blank"
-          className="flex items-start gap-3 border border-border-white-secondary p-4 hover:border-black focus:border-black focus:shadow-[4px_4px_0px_0px_#040404] focus-visible:outline-none focus-visible:ring-0 "
+          className="flex items-start gap-3 border border-border-white-secondary p-4 hover:border-black focus:border-black focus:shadow-[4px_4px_0px_0px_#040404] focus-visible:outline-none focus-visible:ring-0 lg:max-w-[24rem]"
         >
           <div className="flex size-13 items-center justify-center bg-background-white-secondary">
             <WhatsAppLogo className="size-6" />
           </div>
 
-          <div>
+          <div className="flex-1">
             <span className="block text-sm text-text-white-complementary">
               Tem alguma dúvida?
             </span>
@@ -47,9 +47,9 @@ export default function Contact() {
         </Link>
       </div>
 
-      <Separator className="hidden bg-border-white-primary md:block" />
+      <Separator className="hidden bg-border-white-primary md:block lg:hidden" />
 
-      <div className="space-y-6 pt-8 md:pt-14">
+      <div className="space-y-6 pt-8 md:pt-14 lg:pt-0">
         <span className="block font-medium md:text-lg">Dados pessoais</span>
 
         <form className="w-full space-y-6">
@@ -120,7 +120,7 @@ export default function Contact() {
           </div>
 
           <div className="flex flex-col gap-4 pt-4.5 md:flex-row md:items-center md:justify-between">
-            <Button variant="secondary">
+            <Button variant="secondary" disabled>
               Enviar proposta <ArrowRight size={20} />
             </Button>
 

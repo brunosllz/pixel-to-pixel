@@ -22,7 +22,7 @@ const InputControl = React.forwardRef<HTMLInputElement, InputProps>(
       <input
         type={type}
         className={cn(
-          'peer h-16 w-full appearance-none border border-border-white-secondary bg-transparent px-4 pb-[11.5px] pt-[31.5px] leading-none text-gray-900 transition-all hover:border-black focus:border-black focus:shadow-[4px_4px_0px_0px_#040404] focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed',
+          'peer h-16 w-full appearance-none border border-border-white-secondary bg-transparent px-4 pb-[11.5px] pt-[31.5px] leading-none text-text-dark-primary transition-all hover:border-border-dark-primary focus:border-border-dark-primary focus:shadow-[4px_4px_0px_0px_#040404] focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed',
           className,
         )}
         placeholder=" "
@@ -42,7 +42,7 @@ const InputLabel = React.forwardRef<HTMLLabelElement, InputLabelProps>(
       <label
         ref={ref}
         className={cn(
-          'absolute start-4 top-6 z-10 origin-[0] -translate-y-4 scale-75 transform text-black duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-[#8E8E8E] peer-focus:top-6 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-black',
+          'absolute start-4 top-6 z-10 origin-[0] -translate-y-4 scale-75 transform text-text-dark-primary duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-[#8E8E8E] peer-focus:top-6 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-black',
           className,
         )}
         {...props}

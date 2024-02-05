@@ -4,12 +4,12 @@ import Link from 'next/link'
 
 export default function Acknowledgment() {
   return (
-    <div className="mx-auto w-full max-w-container px-5 pb-16 pt-10.5 md:flex md:flex-col md:items-center md:px-8 md:pt-14 lg:px-5 lg:pt-28">
-      <h2 className="text-[1.75rem] font-semibold leading-tight md:text-center md:text-[2rem]">
+    <div className="mx-auto w-full max-w-[50rem] px-5 pb-16 pt-10.5 md:flex md:flex-col md:items-center md:px-8 md:pt-14 lg:px-5 lg:py-28 lg:pt-28">
+      <h2 className="text-[1.75rem] font-semibold leading-tight md:text-center md:text-[2rem] lg:text-[2.625rem]">
         Obrigado por Compartilhar Seu Projeto Conosco
       </h2>
 
-      <p className="mt-6 text-lg text-text-dark-secondary md:text-center md:text-xl">
+      <p className="mt-6 text-lg text-text-dark-secondary md:text-center md:text-xl lg:text-2xl">
         Obrigado pela Confiança em Nós! Sua proposta foi enviada com sucesso e
         estamos ansiosos para conhecer mais sobre o seu projeto. Entraremos em
         contato em breve para discutir os próximos passos.
@@ -17,7 +17,7 @@ export default function Acknowledgment() {
 
       <Separator className="my-8" />
 
-      <span className="mb-10.5 block text-center text-sm font-medium md:text-base">
+      <span className="mb-10.5  block text-center text-sm font-medium md:text-base lg:mb-14 lg:text-lg">
         Retornaremos em até 48 horas.
       </span>
 

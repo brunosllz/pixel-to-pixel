@@ -1,8 +1,9 @@
-import { FigmaButton } from '@/assets/figma-button'
 import { Button } from '@/components/ui/button'
-import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import { FigmaButton } from '@/assets/figma-button'
+import { ArrowUpRight } from 'lucide-react'
 
 export function ProjectsSection() {
   return (

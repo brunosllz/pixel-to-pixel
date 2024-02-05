@@ -12,6 +12,9 @@ const config = withTV({
 
   theme: {
     extend: {
+      screens: {
+        xl: '1156px',
+      },
       spacing: {
         container: '78.5rem',
         '4.5': '1.125rem',
@@ -88,25 +91,17 @@ const config = withTV({
         blink: {
           '50%': { opacity: '0' },
         },
-        wave: {
-          '0%': { transform: 'rotate(0.0deg)' },
-          '10%': { transform: 'rotate(14deg)' },
-          '20%': { transform: 'rotate(-8deg)' },
-          '30%': { transform: 'rotate(14deg)' },
-          '40%': { transform: 'rotate(-4deg)' },
-          '50%': { transform: 'rotate(10.0deg)' },
-          '60%': { transform: 'rotate(0.0deg)' },
-          '100%': { transform: 'rotate(0.0deg)' },
-        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'waving-hand': 'wave 2s linear infinite',
         'blinking-hand': 'blink 1s ease-in-out infinite',
       },
       backgroundImage: {
         'background-grid': "url('/background-grid.png')",
+      },
+      cursor: {
+        figma: 'url(/figma-cursor.cur), auto',
       },
     },
   },

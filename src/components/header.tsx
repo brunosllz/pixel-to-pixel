@@ -12,19 +12,19 @@ const WHITE_BACKGROUND = ['/contato', '/agradecimento']
 
 const NAV_LINKS = [
   {
-    href: '#projetos',
+    href: '/#projetos',
     label: 'Projetos',
   },
   {
-    href: '#o-que-fazemos',
+    href: '/#o-que-fazemos',
     label: 'O que fazemos',
   },
   {
-    href: '#processos',
+    href: '/#processos',
     label: 'Processos',
   },
   {
-    href: '#feedbacks',
+    href: '/#feedbacks',
     label: 'Feedbacks',
   },
 ]
@@ -42,18 +42,36 @@ export function Header() {
       className="w-full bg-background-dark pt-5 data-[is-white-background=true]:bg-background-white md:pt-8 lg:pt-10.5"
     >
       <div className="mx-auto flex w-full max-w-container items-center justify-between px-5 md:px-8 lg:px-5">
-        <Link href="/">
+        <Link
+          data-is-white-background={isWhiteBackGround}
+          href="/"
+          className="group inline-flex items-center gap-4"
+        >
           {isWhiteBackGround ? (
-            <PixelToPixelDarkLogo className="size-10.5" />
+            <>
+              <PixelToPixelDarkLogo className="size-10.5" />
+              <span className="sr-only">Pixel to Pixel</span>
+            </>
           ) : (
-            <PixelToPixelWhiteLogo className="size-10.5" />
+            <>
+              <PixelToPixelWhiteLogo className="size-10.5" />
+              <span className="sr-only">Pixel to Pixel</span>
+            </>
           )}
 
-          <span className="sr-only">Pixel to Pixel</span>
+          <div className="relative hidden overflow-hidden lg:block">
+            <span className="block text-xl font-medium text-text-white-primary transition-all duration-300 ease-in-out group-hover:-translate-y-8 group-data-[is-white-background=true]:text-text-dark-primary">
+              Pixel to Pixel
+            </span>
+
+            <span className="absolute inset-0 top-8 block text-xl font-medium text-text-white-primary transition-all duration-300 ease-in-out group-hover:-translate-y-8 group-data-[is-white-background=true]:text-text-dark-primary">
+              Pixel to Pixel
+            </span>
+          </div>
         </Link>
 
         <div className="flex items-center gap-8">
-          <nav className="hidden lg:flex">
+          <nav className="hidden xl:flex">
             <ul className="flex items-center gap-8">
               {NAV_LINKS.map(({ href, label }) => (
                 <li key={href}>
