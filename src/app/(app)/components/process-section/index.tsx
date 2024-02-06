@@ -1,5 +1,7 @@
 'use client'
 
+import { Broom } from '@/assets/Broom'
+import { Lighting } from '@/assets/Lighting'
 import { Hammer } from '@/assets/hammer'
 import { Puzzle } from '@/assets/puzzle'
 import { Search } from '@/assets/search'
@@ -9,7 +11,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { Separator } from '@/components/ui/separator'
 import { useState } from 'react'
 
 const ACCORDION_ITEMS = [
@@ -48,18 +49,11 @@ const ACCORDION_ITEMS = [
     content:
       'Coleta contínua de feedback do cliente para ajustes e iterações, refinando o design com foco na satisfação e nos requisitos do cliente.',
   },
-  {
-    id: 'Desenvolvimento',
-    title: 'Desenvolvimento',
-    description: 'Viabilidade e Implementação ',
-    content:
-      'Colaboração estreita com a equipe de desenvolvimento para garantir a viabilidade técnica e a entrega de diretrizes claras para a implementação do design.',
-  },
 ]
 
 const ACCORDION_SECTORS = [
   {
-    icon: Hammer,
+    icon: Search,
     label: 'Pesquisa',
   },
   {
@@ -71,16 +65,12 @@ const ACCORDION_SECTORS = [
     label: 'Estruturação',
   },
   {
-    icon: Puzzle,
-    label: 'Pesquisa',
+    icon: Broom,
+    label: 'Estilo',
   },
   {
-    icon: Hammer,
-    label: 'Pesquisa',
-  },
-  {
-    icon: Hammer,
-    label: 'Pesquisa',
+    icon: Lighting,
+    label: 'Iteração',
   },
 ]
 
@@ -95,7 +85,7 @@ export default function ProcessSection() {
             Nossa Maneira de Construir
           </h2>
 
-          <div className="hidden gap-px lg:flex lg:items-center">
+          <div className="hidden lg:flex lg:items-center">
             {ACCORDION_SECTORS.map(({ icon: Icon, label }) => {
               const isSelected = selectedAccordion === label
 
@@ -120,7 +110,6 @@ export default function ProcessSection() {
         </div>
 
         <div>
-          <Separator className="bg-border-white-primary" />
           <Accordion
             type="single"
             collapsible
@@ -131,10 +120,10 @@ export default function ProcessSection() {
               <AccordionItem
                 key={item.id}
                 value={item.id}
-                className="[&_button]:last:pb-0 [&_button]:last:[&[data-state=open]]:pb-5 [&_div]:last:pb-0"
+                className="[&_button]:last:border-t [&_button]:last:border-border-dark-secondary [&_button]:last:pb-0 [&_button]:last:[&[data-state=open]]:border-border-white-primary [&_button]:last:[&[data-state=open]]:pb-5 [&_div]:last:pb-0"
               >
-                <AccordionTrigger>
-                  <div className="flex flex-col items-start">
+                <AccordionTrigger className="focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-white-primary">
+                  <div className="flex flex-col items-start space-y-1">
                     <h3 className="text-start text-xl font-medium text-text-white-primary md:text-[1.375rem] lg:text-2xl">
                       {item.title}
                     </h3>

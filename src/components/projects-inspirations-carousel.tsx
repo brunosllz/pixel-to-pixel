@@ -66,7 +66,7 @@ export function ProjectsInspirationsCarousel() {
                   </div>
 
                   <div className="hidden md:flex">
-                    <div className="max-w-[18rem] space-y-8 border-r border-border-white-secondary p-6">
+                    <div className="min-h-[17.5rem] max-w-[18rem] space-y-8 border-r border-border-white-secondary p-6 lg:min-h-[23.75rem] lg:p-12">
                       <div className="flex size-[4.5rem] items-center justify-center bg-background-white">
                         <MobileDevice width={32} height={32} />
                       </div>
@@ -82,8 +82,8 @@ export function ProjectsInspirationsCarousel() {
                       </div>
                     </div>
 
-                    <div className="flex-1 space-y-8 p-6">
-                      <p className="text-xl font-medium text-text-dark-secondary">
+                    <div className="flex flex-1 items-center justify-center space-y-8 p-6 lg:p-12">
+                      <p className="text-xl font-medium text-text-dark-secondary lg:text-2xl">
                         Este é um projeto de plataforma que permite aos usuários
                         tanto se candidatarem a projetos existentes quanto
                         criarem seus próprios projetos para recrutar

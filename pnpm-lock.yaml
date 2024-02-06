@@ -29,6 +29,9 @@ dependencies:
   clsx:
     specifier: ^2.1.0
     version: 2.1.0
+  embla-carousel-autoplay:
+    specifier: 8.0.0-rc22
+    version: 8.0.0-rc22(embla-carousel@8.0.0-rc19)
   embla-carousel-class-names:
     specifier: 8.0.0-rc19
     version: 8.0.0-rc19(embla-carousel@8.0.0-rc19)
@@ -50,6 +53,9 @@ dependencies:
   react-dom:
     specifier: ^18
     version: 18.2.0(react@18.2.0)
+  react-fast-marquee:
+    specifier: ^1.6.3
+    version: 1.6.3(react-dom@18.2.0)(react@18.2.0)
   react-responsive:
     specifier: ^9.0.2
     version: 9.0.2(react@18.2.0)
@@ -1619,6 +1625,14 @@ packages:
   /electron-to-chromium@1.4.635:
     resolution: {integrity: sha512-iu/2D0zolKU3iDGXXxdOzNf72Jnokn+K1IN6Kk4iV6l1Tr2g/qy+mvmtfAiBwZe5S3aB5r92vp+zSZ69scYRrg==}
     dev: true
+
+  /embla-carousel-autoplay@8.0.0-rc22(embla-carousel@8.0.0-rc19):
+    resolution: {integrity: sha512-UFR9ocKapxuYwcAOv8mb6Rmy7TENpzzHTymKADzB1L5dAJJxjUtOci/OpE3KrZedQaniLMz3HIO9hHqgj1h/3w==}
+    peerDependencies:
+      embla-carousel: 8.0.0-rc22
+    dependencies:
+      embla-carousel: 8.0.0-rc19
+    dev: false
 
   /embla-carousel-class-names@8.0.0-rc19(embla-carousel@8.0.0-rc19):
     resolution: {integrity: sha512-9RSPgBdhEOugFg3Be9xxUIF5ICaplYMakhgp83JqpI68OEa2Ej8F6y2o0qjKSXe1fKREnkSkCmkzJ+AUTbzhmQ==}
@@ -3243,6 +3257,16 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-fast-marquee@1.6.3(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-oEISmNElv6lua/4i4uPYIteUKDxU0hAKKjH/tY2icje4GCns1rX6pIrkwVhjX0FMCIepUVqeyCchvqkiO/s2vw==}
+    peerDependencies:
+      react: '>= 16.8.0 || 18.0.0'
+      react-dom: '>= 16.8.0 || 18.0.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react-is@16.13.1:
