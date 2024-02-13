@@ -23,47 +23,6 @@ export function EmphasisScreensSection() {
         </div>
 
         <ScreensMarquee />
-
-        {/* <Carousel
-        opts={{
-          align: 'start',
-          dragFree: true,
-          containScroll: 'trimSnaps',
-        }}
-        className="bg-red-800"
-      >
-        <CarouselContent className="mr-5 max-w-container pl-5 md:mr-8 md:pl-8 lg:mr-5 lg:pl-5">
-          {Array.from({ length: 10 }).map((_, index) => (
-            <CarouselItem
-              key={index}
-              className="group max-w-max transition-all lg:saturate-0 lg:hover:saturate-100"
-            >
-              <div className="w-[13.75rem] space-y-4 md:w-[15rem] lg:w-[17.5rem]">
-                <div className="h-[17.5rem] w-full bg-[#D9D9D9] md:h-[18.75rem] lg:h-[20rem]">
-                  <Image
-                    width={220}
-                    height={280}
-                    src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
-                    alt=""
-                    className="h-full w-full object-cover"
-                    quality={100}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <span className="line-clamp-1 text-lg font-medium leading-none">
-                    Nome do projeto no dribble
-                  </span>
-
-                  <span className="block text-text-dark-complementary">
-                    @uiamauri
-                  </span>
-                </div>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel> */}
       </div>
     </section>
   )

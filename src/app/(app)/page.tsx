@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 
-import { ClientTestimonyCarousel } from '@/components/client-testimony-carousel'
+import { ClientTestimonyCarousel } from './components/client-testimony-carousel'
 import { HeroSection } from './components/hero-section'
 import { ProjectsSection } from './components/projects-section'
 import { BrandSection } from './components/brand-section'

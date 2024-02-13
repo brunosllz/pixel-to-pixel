@@ -26,13 +26,14 @@ export function ProjectsSection() {
             className="bg-background-white lg:first:border-t-2 lg:first:border-border-white-primary"
           >
             <div className="flex flex-col gap-4 pt-8 md:hidden">
-              <div className="h-[11.25rem] w-full overflow-hidden bg-[#D9D9D9]">
+              <div className="relative h-[11.25rem] w-full overflow-hidden bg-[#D9D9D9]">
                 <Image
-                  width={335}
-                  height={180}
+                  fill
+                  sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"
                   src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
                   alt="Picture of the author"
-                  className="h-full w-full object-cover"
+                  className="object-cover"
+                  quality={100}
                 />
               </div>
 
@@ -70,13 +71,14 @@ export function ProjectsSection() {
                 </p>
               </div>
 
-              <div className="col-span-2 h-[11.25rem] w-full overflow-hidden bg-[#D9D9D9] md:h-[17.5rem] lg:h-[30rem]">
+              <div className="relative col-span-2 h-[11.25rem] w-full overflow-hidden bg-[#D9D9D9] md:h-[17.5rem] lg:h-[30rem]">
                 <Image
-                  width={335}
-                  height={180}
+                  fill
+                  sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"
                   src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
                   alt="Picture of the author"
                   className="h-full w-full object-cover"
+                  quality={100}
                 />
               </div>
             </div>

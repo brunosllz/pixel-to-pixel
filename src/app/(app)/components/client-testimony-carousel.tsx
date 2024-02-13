@@ -1,15 +1,22 @@
 'use client'
 
-import Image from 'next/image'
-import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from './ui/carousel'
-import { Quotes } from '@/assets/quotes'
 import { useEffect, useState } from 'react'
-import { Progress } from './ui/progress'
+import dynamic from 'next/dynamic'
+
+import Image from 'next/image'
+import { CarouselApi, CarouselItem } from '@/components/ui/carousel'
+import { Quotes } from '@/assets/quotes'
+import { Progress } from '@/components/ui/progress'
+
+const Carousel = dynamic(() =>
+  import('@/components/ui/carousel').then((mod) => ({ default: mod.Carousel })),
+)
+
+const CarouselContent = dynamic(() =>
+  import('@/components/ui/carousel').then((mod) => ({
+    default: mod.CarouselContent,
+  })),
+)
 
 export function ClientTestimonyCarousel() {
   const [api, setApi] = useState<CarouselApi>()
@@ -71,11 +78,7 @@ export function ClientTestimonyCarousel() {
       </Carousel>
 
       <div className="space-y-4">
-        <Progress
-          value={current}
-          max={count}
-          className="md:max-w-[20.9375rem]"
-        />
+        <Progress value={current} max={count} />
 
         <div>
           <span className="text-sm font-medium leading-none text-text-dark-primary md:text-base">

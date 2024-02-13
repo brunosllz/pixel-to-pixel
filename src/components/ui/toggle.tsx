@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 
 const toggleVariants = tv(
   {
-    base: 'ring-offset-background hover:bg-muted hover:text-muted-foreground focus-visible:ring-ring group flex items-center justify-center rounded-md border border-border-white-secondary text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ',
+    base: 'group flex items-center justify-center rounded-md border border-border-white-secondary text-sm font-medium  transition-colors hover:border-border-dark-primary focus-visible:border-border-dark-primary focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 ',
     variants: {
       variant: {
         default:

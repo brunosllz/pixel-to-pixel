@@ -1,17 +1,37 @@
 'use client'
 
+import { useState } from 'react'
+import dynamic from 'next/dynamic'
+
 import { Broom } from '@/assets/Broom'
-import { Lighting } from '@/assets/Lighting'
+import { Lighting } from '@/assets/lighting'
 import { Hammer } from '@/assets/hammer'
 import { Puzzle } from '@/assets/puzzle'
 import { Search } from '@/assets/search'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
-import { useState } from 'react'
+
+const Accordion = dynamic(() =>
+  import('@/components/ui/accordion').then((mod) => ({
+    default: mod.Accordion,
+  })),
+)
+
+const AccordionContent = dynamic(() =>
+  import('@/components/ui/accordion').then((mod) => ({
+    default: mod.AccordionContent,
+  })),
+)
+
+const AccordionItem = dynamic(() =>
+  import('@/components/ui/accordion').then((mod) => ({
+    default: mod.AccordionItem,
+  })),
+)
+
+const AccordionTrigger = dynamic(() =>
+  import('@/components/ui/accordion').then((mod) => ({
+    default: mod.AccordionTrigger,
+  })),
+)
 
 const ACCORDION_ITEMS = [
   {

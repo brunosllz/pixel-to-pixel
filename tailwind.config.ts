@@ -12,12 +12,17 @@ const config = withTV({
 
   theme: {
     extend: {
+      transitionProperty: {
+        'border-radius': 'border-radius',
+      },
       screens: {
         xl: '1156px',
+        desktop: '1280px',
       },
       spacing: {
         container: '78.5rem',
         '4.5': '1.125rem',
+        '8.5': '2.125rem',
         '10.5': '2.625rem',
         '11.5': '2.875rem',
         '13': '3.25rem',

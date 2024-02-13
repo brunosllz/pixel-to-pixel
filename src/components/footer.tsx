@@ -73,9 +73,13 @@ export function Footer() {
 
           <span className="block items-center text-center text-sm text-text-white-complementary md:text-base">
             Code by:{' '}
-            <span className="text-sm text-text-white-secondary md:text-base">
-              @desenvolvedor
-            </span>
+            <Link
+              href="https://www.linkedin.com/in/bruno-silveira-luiz/"
+              className="text-sm text-text-white-secondary hover:text-text-white-primary md:text-base"
+              target="_blank"
+            >
+              Bruno Luiz
+            </Link>
           </span>
 
           <span className="hidden text-center text-text-white-complementary md:block">
