@@ -13,7 +13,120 @@ export const metadata: Metadata = {
   title: 'Projeto',
 }
 
-export default function Project() {
+type ProjectDetailsResponseAPI = {
+  capaProjeto: {
+    url: string
+  }
+  maisImagens: Array<{
+    url: string
+  }>
+  comentarioSobreOProjeto: string
+  dataDeEntrega: string
+  depoimentoDoCliente: string
+  descricao: string
+  funcaoDoCliente: string
+  funcaoRealizada: string
+  id: string
+  nome: string
+  nomeDoCliente: string
+  tipo: string
+}
+
+type Response = {
+  data: {
+    projeto: ProjectDetailsResponseAPI
+  }
+}
+
+type ProjectDeTails = {
+  projectBanner: string
+  commentAboutProject: string
+  deliveryDetails: string
+  clientTestimonial: string
+  description: string
+  roleOfClient: string
+  roleRealized: string
+  id: string
+  name: string
+  nameOfClient: string
+  type: string
+  moreImages: Array<{ url: string }>
+}
+
+type LoadProjectDetailsResponse = {
+  projectDetails: ProjectDeTails
+}
+
+async function loadProjectDetails({
+  slug,
+}: {
+  slug: string
+}): Promise<LoadProjectDetailsResponse> {
+  const query = `
+    query projectDetails {
+      projeto(where: {slug: "${slug}"}) {
+        capaProjeto {
+          url
+        }
+        comentarioSobreOProjeto
+        dataDeEntrega
+        depoimentoDoCliente
+        descricao
+        funcaoDoCliente
+        funcaoRealizada
+        id
+        nome
+        nomeDoCliente
+        tipo
+        maisImagens {
+          url
+        }
+      }
+    }
+  `
+
+  const data = await fetch(
+    'https://api-sa-east-1.hygraph.com/v2/cls9mho2o1sro01w3m1dte5de/master',
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        query,
+      }),
+      next: {
+        revalidate: 60 * 60 * 24, // 24 hours
+      },
+    },
+  )
+
+  const response: Response = await data.json()
+
+  const { projeto } = response.data
+
+  return {
+    projectDetails: {
+      id: projeto.id,
+      clientTestimonial: projeto.depoimentoDoCliente,
+      commentAboutProject: projeto.comentarioSobreOProjeto,
+      deliveryDetails: projeto.dataDeEntrega,
+      description: projeto.descricao,
+      name: projeto.nome,
+      nameOfClient: projeto.nomeDoCliente,
+      projectBanner: projeto.capaProjeto.url,
+      roleOfClient: projeto.funcaoDoCliente,
+      roleRealized: projeto.funcaoRealizada,
+      type: projeto.tipo,
+      moreImages: projeto.maisImagens,
+    },
+  }
+}
+
+export default async function Project({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const { projectDetails } = await loadProjectDetails({ slug: params.slug })
+
   return (
     <div className="w-full">
       <section className="w-full bg-background-dark">
@@ -21,7 +134,7 @@ export default function Project() {
           <div className="space-y-5 xl:flex xl:items-end xl:justify-between">
             <div className="space-y-12">
               <h1 className="text-3xl font-medium leading-loose text-text-white-primary md:text-4xl lg:max-w-[24rem] lg:text-[2.625rem]">
-                Dev Xperience
+                {projectDetails.name}
               </h1>
 
               <div className="hidden items-center gap-5 xl:flex">
@@ -42,9 +155,7 @@ export default function Project() {
 
             <div className="space-y-5 xl:max-w-[43.5rem] xl:space-y-8">
               <p className="pb-3 text-xl text-text-white-primary lg:pb-0 lg:text-2xl">
-                Este é um projeto de plataforma que permite aos usuários tanto
-                se candidatarem a projetos existentes quanto criarem seus
-                próprios projetos para recrutar colaboradores.
+                {projectDetails.description}
               </p>
 
               <Link
@@ -76,8 +187,8 @@ export default function Project() {
 
           <div className="relative h-[13.75rem] w-full bg-[#D9D9D9] md:h-[26.25rem] lg:h-[38.75rem]">
             <Image
-              src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
-              alt=""
+              src={projectDetails.projectBanner}
+              alt={projectDetails.name}
               fill
               sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"
               priority
@@ -93,12 +204,8 @@ export default function Project() {
             Destaques da Entrega
           </h2>
 
-          <p className="text-lg font-medium text-text-dark-secondary md:text-xl lg:hidden lg:leading-relaxed">
-            Participei ativamente na criação da interface de usuário da
-            plataforma Dev Experience. Apliquei as melhores práticas de design
-            para garantir uma jornada do usuário agradável, desde o acesso à
-            plataforma até a conclusão dos projetos, visando tanto estética
-            quanto experiência fluida.
+          <p className="text-lg font-medium text-text-dark-secondary md:text-xl lg:hidden">
+            {projectDetails.commentAboutProject}
           </p>
 
           <div className="hidden space-y-2 lg:block lg:max-w-[11rem]">
@@ -113,21 +220,15 @@ export default function Project() {
         </div>
 
         <div className="space-y-8 lg:max-w-[43.5rem] lg:space-y-12">
-          <p className="hidden text-lg font-medium leading-relaxed text-text-dark-secondary md:text-xl lg:block xl:text-2xl">
-            Participei ativamente na criação da interface de usuário da
-            plataforma Dev Experience. Apliquei as melhores práticas de design
-            para garantir uma jornada do usuário agradável, desde o acesso à
-            plataforma até a conclusão dos projetos, visando tanto estética
-            quanto experiência fluida.
+          <p className="hidden text-lg font-medium text-text-dark-secondary md:text-xl lg:block lg:leading-relaxed xl:text-2xl">
+            {projectDetails.commentAboutProject}
           </p>
 
           <Separator />
 
           <div className="space-y-6 lg:space-y-8">
             <p className="cl:text-2xl text-lg font-medium leading-relaxed text-text-dark-secondary md:text-xl">
-              “Este é um projeto de plataforma que permite aos usuários tanto se
-              candidatarem a projetos existentes quanto criarem seus próprios
-              projetos para recrutar colaboradores.”
+              “{projectDetails.clientTestimonial}”
             </p>
 
             <div className="flex items-center gap-5">
@@ -143,10 +244,10 @@ export default function Project() {
 
               <div className="flex flex-col gap-2">
                 <span className="font-medium leading-tight text-text-dark-primary md:text-lg">
-                  Nome cliente
+                  {projectDetails.nameOfClient}
                 </span>
                 <span className="text-sm leading-none text-text-dark-secondary xl:text-base">
-                  Função e nome da empresa
+                  {projectDetails.roleOfClient}
                 </span>
               </div>
             </div>
@@ -157,9 +258,9 @@ export default function Project() {
       <section className="mx-auto w-full max-w-container">
         <div className="border-b border-border-white-primary px-5 pb-10.5 pt-8 md:px-8 lg:px-5 lg:pb-14 lg:pt-14">
           <div className="grid grid-cols-2 gap-3 lg:gap-6">
-            <div className="relative col-span-2 h-[11.25rem] bg-[#D9D9D9] md:h-[23.75rem] lg:h-[30rem]">
+            <div className="relative col-span-2 h-[11.25rem] bg-[#D9D9D9] md:h-[23.75rem] lg:h-[37.25rem]">
               <Image
-                src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
+                src={projectDetails.moreImages[0].url}
                 alt=""
                 fill
                 sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"
@@ -169,7 +270,7 @@ export default function Project() {
 
             <div className="relative h-[11.25rem] bg-[#D9D9D9] md:h-[13.75rem] lg:h-[30rem]">
               <Image
-                src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
+                src={projectDetails.moreImages[1].url}
                 alt=""
                 fill
                 sizes="(min-width: 768px) 346px, (min-width: 1024px) 596px, 160px"
@@ -179,7 +280,7 @@ export default function Project() {
 
             <div className="relative h-[11.25rem] bg-[#D9D9D9] md:h-[13.75rem] lg:h-[30rem]">
               <Image
-                src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
+                src={projectDetails.moreImages[2].url}
                 alt=""
                 fill
                 sizes="(min-width: 768px) 346px, (min-width: 1024px) 596px, 160px"
@@ -200,9 +301,9 @@ export default function Project() {
         </div>
 
         <div className="grid-cols grid gap-3 lg:gap-6">
-          <div className="relative col-span-2 h-[11.25rem] w-full bg-[#D9D9D9] md:h-[23.75rem] lg:h-[30rem]">
+          <div className="relative col-span-2 h-[11.25rem] w-full bg-[#D9D9D9] md:h-[23.75rem] lg:h-[37.25rem]">
             <Image
-              src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
+              src={projectDetails.moreImages[3].url}
               alt=""
               fill
               sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"
@@ -212,7 +313,7 @@ export default function Project() {
 
           <div className="relative h-28 w-full bg-[#D9D9D9] md:h-[13.75rem] lg:h-[30rem]">
             <Image
-              src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
+              src={projectDetails.moreImages[4].url}
               alt=""
               fill
               sizes="(min-width: 768px) 346px, (min-width: 1024px) 596px, 160px"
@@ -222,7 +323,7 @@ export default function Project() {
 
           <div className="relative h-28 w-full bg-[#D9D9D9] md:h-[13.75rem] lg:h-[30rem]">
             <Image
-              src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
+              src={projectDetails.moreImages[5].url}
               alt=""
               fill
               sizes="(min-width: 768px) 346px, (min-width: 1024px) 596px, 160px"
@@ -232,7 +333,37 @@ export default function Project() {
 
           <div className="relative col-span-2 h-[22.5rem] w-full bg-[#D9D9D9] md:h-[23.75rem] lg:h-[60rem]">
             <Image
-              src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/7a80f8186064611.656ef8e3cebca.png"
+              src={projectDetails.moreImages[6].url}
+              alt=""
+              fill
+              sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"
+              className="object-cover"
+            />
+          </div>
+
+          <div className="relative h-28 w-full bg-[#D9D9D9] md:h-[13.75rem] lg:h-[30rem]">
+            <Image
+              src={projectDetails.moreImages[7].url}
+              alt=""
+              fill
+              sizes="(min-width: 768px) 346px, (min-width: 1024px) 596px, 160px"
+              className="object-cover"
+            />
+          </div>
+
+          <div className="relative h-28 w-full bg-[#D9D9D9] md:h-[13.75rem] lg:h-[30rem]">
+            <Image
+              src={projectDetails.moreImages[8].url}
+              alt=""
+              fill
+              sizes="(min-width: 768px) 346px, (min-width: 1024px) 596px, 160px"
+              className="object-cover"
+            />
+          </div>
+
+          <div className="relative col-span-2 h-[22.5rem] w-full bg-[#D9D9D9] md:h-[23.75rem] lg:h-[100rem]">
+            <Image
+              src={projectDetails.moreImages[9].url}
               alt=""
               fill
               sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"

@@ -15,14 +15,91 @@ import { EmphasisScreensSection } from './components/emphasis screens-section'
 
 const ProcessSection = dynamic(() => import('./components/process-section'))
 
-export default function Home() {
+type ProjectsResponseAPI = {
+  id: string
+  nome: string
+  descricao: string
+  slug: string
+  capaHome: {
+    url: string
+  }
+}
+
+export type Project = {
+  id: string
+  name: string
+  description: string
+  slug: string
+  homeBanner: string
+}
+
+type Response = {
+  data: {
+    projetos: ProjectsResponseAPI[]
+  }
+}
+
+type LoadHomeResponse = {
+  data: {
+    projects: Project[]
+  }
+}
+
+async function loadHomeContent(): Promise<LoadHomeResponse> {
+  const query = `
+    query homeContent {
+      projetos(orderBy: createdAt_ASC) {
+        capaHome {
+          url
+        }
+        id
+        nome
+        descricao
+        slug
+      }
+    }  
+  `
+
+  const data = await fetch(
+    'https://api-sa-east-1.hygraph.com/v2/cls9mho2o1sro01w3m1dte5de/master',
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        query,
+      }),
+      next: {
+        revalidate: 60 * 60 * 24, // 24 hours
+      },
+    },
+  )
+
+  const response: Response = await data.json()
+
+  const { projetos } = response.data
+
+  return {
+    data: {
+      projects: projetos.map((project) => ({
+        id: project.id,
+        name: project.nome,
+        description: project.descricao,
+        slug: project.slug,
+        homeBanner: project.capaHome.url,
+      })),
+    },
+  }
+}
+
+export default async function Home() {
+  const { data } = await loadHomeContent()
+
   return (
     <div className="w-full">
       <HeroSection />
 
       <BrandSection />
 
-      <ProjectsSection />
+      <ProjectsSection projects={data.projects} />
 
       <section
         id="o-que-fazemos"
