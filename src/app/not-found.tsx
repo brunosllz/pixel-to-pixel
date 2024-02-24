@@ -100,7 +100,7 @@ export default function NotFound() {
       <div className="flex flex-1 cursor-figma">
         <div className="mx-auto flex w-full max-w-container flex-1 flex-col items-center justify-center gap-12 bg-background-grid bg-contain px-5 desktop:gap-16">
           <div className="relative">
-            <div className="group absolute -top-11 left-8 flex size-10 gap-3 rounded-br-full rounded-tl-full rounded-tr-full bg-background-dark-secondary p-1 shadow-lg transition-[border-radius] duration-0 hover:-top-[104px] hover:h-auto hover:w-auto hover:rounded-br-lg hover:rounded-tl-lg hover:rounded-tr-lg hover:px-3 hover:py-2 desktop:left-12">
+            <div className="group absolute -left-9 -top-11 flex size-10 gap-3 rounded-br-full rounded-tl-full rounded-tr-full bg-background-dark-secondary p-1 shadow-lg transition-[border-radius] duration-0 hover:-top-[104px] hover:h-auto hover:w-auto hover:rounded-br-lg hover:rounded-tl-lg hover:rounded-tr-lg hover:px-3 hover:py-2 desktop:left-12">
               <div className="flex size-8 items-center justify-center rounded-full bg-[#0C8CE9]">
                 <span className="select-none text-sm text-text-white-primary">
                   A
