@@ -91,7 +91,6 @@ export function ContactForm() {
       router.push('/contato/agradecimento')
     } catch (error) {
       setIsSubmitting(false)
-      console.error(error)
     }
   }
 
