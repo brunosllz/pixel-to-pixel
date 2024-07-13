@@ -21,6 +21,7 @@
     "@react-email/components": "^0.0.14",
     "axios": "^1.6.7",
     "clsx": "^2.1.0",
+    "dayjs": "^1.11.11",
     "embla-carousel-class-names": "8.0.0-rc19",
     "embla-carousel-react": "8.0.0-rc19",
     "framer-motion": "^11.0.3",

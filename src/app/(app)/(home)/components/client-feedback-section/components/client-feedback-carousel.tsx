@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { CarouselApi, CarouselItem } from '@/components/ui/carousel'
 import { Quotes } from '@/assets/quotes'
 import { Progress } from '@/components/ui/progress'
+import { Feedback } from '@/app/actions/fetch-clients-feedbacks'
 
 const Carousel = dynamic(() =>
   import('@/components/ui/carousel').then((mod) => ({ default: mod.Carousel })),
@@ -18,7 +19,13 @@ const CarouselContent = dynamic(() =>
   })),
 )
 
-export function ClientTestimonyCarousel() {
+export type ClientFeedbackCarouselProps = {
+  feedbacks: Feedback[]
+}
+
+export function ClientFeedbackCarousel({
+  feedbacks,
+}: ClientFeedbackCarouselProps) {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
@@ -40,8 +47,8 @@ export function ClientTestimonyCarousel() {
     <div className="space-y-10.5 lg:space-y-14">
       <Carousel setApi={setApi}>
         <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index}>
+          {feedbacks.map((feedback) => (
+            <CarouselItem key={feedback.id}>
               <div className="space-y-3 lg:space-y-4">
                 <Quotes />
 
@@ -56,7 +63,7 @@ export function ClientTestimonyCarousel() {
                     <Image
                       width={50}
                       height={50}
-                      src="https://github.com/brunosllz.png"
+                      src={feedback.clientAvatarUrl}
                       alt=""
                       className="h-full w-full object-cover"
                     />
@@ -64,10 +71,10 @@ export function ClientTestimonyCarousel() {
 
                   <div className="space-y-2">
                     <span className="block select-none font-medium leading-tight md:text-lg lg:text-xl">
-                      Nome cliente
+                      {feedback.clientName}
                     </span>
                     <span className="block select-none text-sm leading-tight text-text-dark-secondary md:text-base lg:text-lg">
-                      Função e nome da empresa
+                      {feedback.clientRole}
                     </span>
                   </div>
                 </div>

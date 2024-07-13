@@ -1,123 +1,19 @@
 import { Metadata } from 'next'
 
-import { ProjectsInspirationsCarousel } from './components/projects-inspirations-carousel'
 import { Separator } from '@/components/ui/separator'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { ArrowUpRight } from 'lucide-react'
-import { FigmaButtons } from '@/assets/figma-buttons'
+
 import { Devices } from '@/assets/devices'
+import { GetProjectDetails } from '@/app/actions/get-project-details'
+import { ProjectTypeIcon } from './components/project-type-icon'
+
+import { MoreProjectsSection } from './components/more-projects-section'
 
 export const metadata: Metadata = {
   title: 'Projeto',
-}
-
-type ProjectDetailsResponseAPI = {
-  capaProjeto: {
-    url: string
-  }
-  maisImagens: Array<{
-    url: string
-  }>
-  comentarioSobreOProjeto: string
-  dataDeEntrega: string
-  depoimentoDoCliente: string
-  descricao: string
-  funcaoDoCliente: string
-  funcaoRealizada: string
-  id: string
-  nome: string
-  nomeDoCliente: string
-  tipo: string
-}
-
-type Response = {
-  data: {
-    projeto: ProjectDetailsResponseAPI
-  }
-}
-
-type ProjectDeTails = {
-  projectBanner: string
-  commentAboutProject: string
-  deliveryDetails: string
-  clientTestimonial: string
-  description: string
-  roleOfClient: string
-  roleRealized: string
-  id: string
-  name: string
-  nameOfClient: string
-  type: string
-  moreImages: Array<{ url: string }>
-}
-
-type LoadProjectDetailsResponse = {
-  projectDetails: ProjectDeTails
-}
-
-async function loadProjectDetails({
-  slug,
-}: {
-  slug: string
-}): Promise<LoadProjectDetailsResponse> {
-  const query = `
-    query projectDetails {
-      projeto(where: {slug: "${slug}"}) {
-        capaProjeto {
-          url
-        }
-        comentarioSobreOProjeto
-        dataDeEntrega
-        depoimentoDoCliente
-        descricao
-        funcaoDoCliente
-        funcaoRealizada
-        id
-        nome
-        nomeDoCliente
-        tipo
-        maisImagens {
-          url
-        }
-      }
-    }
-  `
-
-  const data = await fetch(
-    'https://api-sa-east-1.hygraph.com/v2/cls9mho2o1sro01w3m1dte5de/master',
-    {
-      method: 'POST',
-      body: JSON.stringify({
-        query,
-      }),
-      next: {
-        revalidate: 60 * 60 * 24, // 24 hours
-      },
-    },
-  )
-
-  const response: Response = await data.json()
-
-  const { projeto } = response.data
-
-  return {
-    projectDetails: {
-      id: projeto.id,
-      clientTestimonial: projeto.depoimentoDoCliente,
-      commentAboutProject: projeto.comentarioSobreOProjeto,
-      deliveryDetails: projeto.dataDeEntrega,
-      description: projeto.descricao,
-      name: projeto.nome,
-      nameOfClient: projeto.nomeDoCliente,
-      projectBanner: projeto.capaProjeto.url,
-      roleOfClient: projeto.funcaoDoCliente,
-      roleRealized: projeto.funcaoRealizada,
-      type: projeto.tipo,
-      moreImages: projeto.maisImagens,
-    },
-  }
 }
 
 export default async function Project({
@@ -125,7 +21,9 @@ export default async function Project({
 }: {
   params: { slug: string }
 }) {
-  const { projectDetails } = await loadProjectDetails({ slug: params.slug })
+  const { projectDetails } = await GetProjectDetails({
+    slug: params.slug,
+  })
 
   return (
     <div className="w-full">
@@ -138,16 +36,14 @@ export default async function Project({
               </h1>
 
               <div className="hidden items-center gap-5 xl:flex">
-                <div className="flex size-16  items-center justify-center bg-background-white">
-                  <Devices className="size-7" />
-                </div>
+                <ProjectTypeIcon type={projectDetails.type} />
 
                 <div className="flex flex-col gap-2">
-                  <span className="text-xl font-medium text-text-white-secondary">
-                    Website
+                  <span className="text-xl font-medium text-text-white-secondary first-letter:uppercase">
+                    {projectDetails.type}
                   </span>
                   <span className="leading-none text-text-white-complementary">
-                    UI Design
+                    {projectDetails.roleRealized}
                   </span>
                 </div>
               </div>
@@ -171,23 +67,21 @@ export default async function Project({
           <Separator className="bg-border-dark-secondary" />
 
           <div className="flex items-center gap-5 xl:hidden">
-            <div className="flex size-[3.25rem] items-center justify-center bg-background-white">
-              <Devices className="size-6" />
-            </div>
+            <ProjectTypeIcon type={projectDetails.type} />
 
             <div className="flex flex-col gap-2">
               <span className="text-lg font-medium text-text-white-secondary">
-                Website
+                {projectDetails.type}
               </span>
               <span className="text-sm leading-none text-text-white-complementary">
-                UI Design
+                {projectDetails.roleRealized}
               </span>
             </div>
           </div>
 
           <div className="relative h-[13.75rem] w-full bg-[#D9D9D9] md:h-[26.25rem] lg:h-[38.75rem]">
             <Image
-              src={projectDetails.projectBanner}
+              src={projectDetails.banner}
               alt={projectDetails.name}
               fill
               sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"
@@ -206,7 +100,7 @@ export default async function Project({
           </h2>
 
           <p className="text-lg font-medium text-text-dark-secondary md:text-xl lg:hidden">
-            {projectDetails.commentAboutProject}
+            {projectDetails.commentAbout}
           </p>
 
           <div className="hidden space-y-2 lg:block lg:max-w-[11rem]">
@@ -222,33 +116,35 @@ export default async function Project({
 
         <div className="space-y-8 lg:max-w-[43.5rem] lg:space-y-12">
           <p className="hidden text-lg font-medium text-text-dark-secondary md:text-xl lg:block lg:leading-relaxed xl:text-2xl">
-            {projectDetails.commentAboutProject}
+            {projectDetails.commentAbout}
           </p>
 
           <Separator />
 
           <div className="space-y-6 lg:space-y-8">
             <p className="cl:text-2xl text-lg font-medium leading-relaxed text-text-dark-secondary md:text-xl">
-              “{projectDetails.clientTestimonial}”
+              “{projectDetails.clientFeedback}”
             </p>
 
             <div className="flex items-center gap-5">
               <div className="size-11.5 bg-[#D9D9D9] xl:size-13">
-                <Image
-                  src="https://github.com/brunosllz.png"
-                  alt=""
-                  width={50}
-                  height={50}
-                  className="size-full object-cover"
-                />
+                {projectDetails.clientAvatarUrl && (
+                  <Image
+                    src={projectDetails.clientAvatarUrl}
+                    alt=""
+                    width={50}
+                    height={50}
+                    className="size-full object-cover"
+                  />
+                )}
               </div>
 
               <div className="flex flex-col gap-2">
                 <span className="font-medium leading-tight text-text-dark-primary md:text-lg">
-                  {projectDetails.nameOfClient}
+                  {projectDetails.clientName}
                 </span>
                 <span className="text-sm leading-none text-text-dark-secondary xl:text-base">
-                  {projectDetails.roleOfClient}
+                  {projectDetails.clientRole}
                 </span>
               </div>
             </div>
@@ -384,19 +280,7 @@ export default async function Project({
         </div>
       </section>
 
-      <section className="w-full bg-background-white-secondary">
-        <div className="mx-auto w-full max-w-container space-y-10.5 px-5 py-16 md:space-y-14 md:px-8 lg:px-5 lg:py-28">
-          <div className="flex items-end justify-between">
-            <h2 className="text-[1.75rem] font-semibold leading-tight md:max-w-[27.8125rem] md:text-[2rem]">
-              Mais dos Projetos que Inspiram
-            </h2>
-
-            <FigmaButtons className="hidden lg:block" />
-          </div>
-
-          <ProjectsInspirationsCarousel />
-        </div>
-      </section>
+      <MoreProjectsSection slug={params.slug} />
     </div>
   )
 }

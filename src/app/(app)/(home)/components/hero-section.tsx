@@ -2,28 +2,8 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import Link from 'next/link'
 
-import { BehanceLogo } from '@/assets/behance-logo'
-import { DribbleLogo } from '@/assets/dribble-logo'
-import { LinkedinLogo } from '@/assets/linkedin-logo'
 import { ArrowRight } from 'lucide-react'
-
-const SOCIAL_LINKS = [
-  {
-    href: 'https://www.linkedin.com/in/ui-amaurijunior/',
-    icon: LinkedinLogo,
-    label: 'Linkedin',
-  },
-  {
-    href: 'https://www.behance.net/ui_amauri',
-    icon: BehanceLogo,
-    label: 'Behance',
-  },
-  {
-    href: 'https://dribbble.com/amaurijunior',
-    icon: DribbleLogo,
-    label: 'Dribbble',
-  },
-]
+import { SOCIAL_MEDIA_LINKS } from '@/utils/constants'
 
 export function HeroSection() {
   return (
@@ -54,10 +34,10 @@ export function HeroSection() {
         </div>
 
         <div className="grid grid-cols-3 gap-5 md:gap-4 lg:max-w-[36.25rem] lg:gap-8">
-          {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
+          {SOCIAL_MEDIA_LINKS.map(({ href, icon: Icon, label }) => (
             <Link
               key={href}
-              href="https://www.linkedin.com/in/ui-amaurijunior/"
+              href={href}
               className="flex h-[5.5rem] flex-col items-center justify-center gap-2 border border-border-dark-secondary text-text-white-secondary transition-colors hover:border-text-dark-tertiary hover:bg-effect-white-hover"
               target="_blank"
             >

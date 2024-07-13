@@ -3,11 +3,10 @@
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
 
-import { Broom } from '@/assets/Broom'
-import { Lighting } from '@/assets/lighting'
-import { Hammer } from '@/assets/hammer'
-import { Puzzle } from '@/assets/puzzle'
-import { Search } from '@/assets/search'
+import {
+  OUR_WAY_BUILDING_ACCORDION_ITEMS,
+  OUR_WAY_BUILDING_ACCORDION_SECTORS,
+} from '@/utils/constants'
 
 const Accordion = dynamic(() =>
   import('@/components/ui/accordion').then((mod) => ({
@@ -33,69 +32,12 @@ const AccordionTrigger = dynamic(() =>
   })),
 )
 
-const ACCORDION_ITEMS = [
-  {
-    id: 'Pesquisa',
-    title: 'Pesquisa',
-    description: 'Compreensão Profunda e Estratégica',
-    content:
-      'Análises de mercado para identificar tendências e necessidades, combinadas com a compreensão detalhada das metas e requisitos do cliente para alinhar o projeto estrategicamente.',
-  },
-  {
-    id: 'Ideação',
-    title: 'Ideação',
-    description: 'Geração Criativa de Ideias',
-    content:
-      'Sessões de brainstorming para gerar ideias inovadoras, definição de conceitos e estratégias iniciais, incorporando a coleta de inspirações por meio de moodboards para orientar a abordagem criativa do projeto.',
-  },
-  {
-    id: 'Estruturação',
-    title: 'Estruturação',
-    description: 'Prototipagem e Estruturação Visual',
-    content:
-      'Criação de wireframes e protótipos básicos para a disposição visual do layout, além do desenvolvimento de protótipos interativos para testar funcionalidade e usabilidade.',
-  },
-  {
-    id: 'Estilo',
-    title: 'Estilo',
-    description: 'Desenvolvimento Estético e Visual',
-    content:
-      'Foco na identidade visual do projeto, incluindo a criação da paleta de cores, tipografia e elementos visuais alinhados à estética planejada.',
-  },
-  {
-    id: 'Iteração',
-    title: 'Iteração',
-    description: 'Ajustes Iterativos e Feedback',
-    content:
-      'Coleta contínua de feedback do cliente para ajustes e iterações, refinando o design com foco na satisfação e nos requisitos do cliente.',
-  },
-]
+export function OurWayBuildingSection() {
+  const [selectedAccordion, setSelectedAccordion] = useState<string>('')
 
-const ACCORDION_SECTORS = [
-  {
-    icon: Search,
-    label: 'Pesquisa',
-  },
-  {
-    icon: Puzzle,
-    label: 'Ideação',
-  },
-  {
-    icon: Hammer,
-    label: 'Estruturação',
-  },
-  {
-    icon: Broom,
-    label: 'Estilo',
-  },
-  {
-    icon: Lighting,
-    label: 'Iteração',
-  },
-]
-
-export default function ProcessSection() {
-  const [selectedAccordion, setSelectedAccordion] = useState<string>()
+  const toggleSelectedAccordion = (label: string) => {
+    setSelectedAccordion((prev) => (prev === label ? '' : label))
+  }
 
   return (
     <section id="processos" className="w-full bg-background-dark">
@@ -106,7 +48,7 @@ export default function ProcessSection() {
           </h2>
 
           <div className="hidden lg:flex lg:items-center">
-            {ACCORDION_SECTORS.map(({ icon: Icon, label }) => {
+            {OUR_WAY_BUILDING_ACCORDION_SECTORS.map(({ icon: Icon, label }) => {
               const isSelected = selectedAccordion === label
 
               return (
@@ -114,7 +56,7 @@ export default function ProcessSection() {
                   data-is-selected={isSelected}
                   key={label}
                   className="group relative flex size-16 items-center justify-center border border-border-dark-secondary outline-none transition-colors focus-visible:z-10 focus-visible:ring-1 focus-visible:ring-brand-primary data-[is-selected=true]:border-brand-primary "
-                  onClick={() => setSelectedAccordion(label)}
+                  onClick={() => toggleSelectedAccordion(label)}
                 >
                   <Icon />
                   <span className="sr-only">{label}</span>
@@ -136,7 +78,7 @@ export default function ProcessSection() {
             onValueChange={setSelectedAccordion}
             value={selectedAccordion}
           >
-            {ACCORDION_ITEMS.map((item) => (
+            {OUR_WAY_BUILDING_ACCORDION_ITEMS.map((item) => (
               <AccordionItem
                 key={item.id}
                 value={item.id}

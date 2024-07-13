@@ -1,6 +1,6 @@
-import { ScreensMarquee } from './components/screens-marquee'
+import { HighlightScreensMarquee } from './components/highlight-screens-marquee'
 
-export function EmphasisScreensSection() {
+export function HighlightScreensSection() {
   return (
     <section className="w-full bg-background-white-secondary">
       <div className=" w-full space-y-10.5 py-16 lg:space-y-14 lg:py-28">
@@ -22,7 +22,7 @@ export function EmphasisScreensSection() {
           </div>
         </div>
 
-        <ScreensMarquee />
+        <HighlightScreensMarquee />
       </div>
     </section>
   )

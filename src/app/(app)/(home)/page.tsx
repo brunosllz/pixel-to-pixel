@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic'
 
-import { ClientTestimonyCarousel } from './components/client-testimony-carousel'
 import { HeroSection } from './components/hero-section'
 import { ProjectsSection } from './components/projects-section'
 import { BrandSection } from './components/brand-section'
@@ -9,97 +8,22 @@ import { Browsers } from '@/assets/browsers'
 import { Devices } from '@/assets/devices'
 import { MobileDevice } from '@/assets/mobile-device'
 import { GridLayoutFigma } from '@/assets/grid-layout-figma'
-import { ArrowUp } from 'lucide-react'
-import { CommentCursorFigma } from '@/assets/comment-cursor-figma'
-import { EmphasisScreensSection } from './components/emphasis screens-section'
 
-const ProcessSection = dynamic(() => import('./components/process-section'))
+import { HighlightScreensSection } from './components/highlight-screens-section'
+import { ClientFeedbackSection } from './components/client-feedback-section'
 
-type ProjectsResponseAPI = {
-  id: string
-  nome: string
-  descricao: string
-  slug: string
-  capaHome: {
-    url: string
-  }
-}
-
-export type Project = {
-  id: string
-  name: string
-  description: string
-  slug: string
-  homeBanner: string
-}
-
-type Response = {
-  data: {
-    projetos: ProjectsResponseAPI[]
-  }
-}
-
-type LoadHomeResponse = {
-  data: {
-    projects: Project[]
-  }
-}
-
-async function loadHomeContent(): Promise<LoadHomeResponse> {
-  const query = `
-    query homeContent {
-      projetos(orderBy: createdAt_ASC) {
-        capaHome {
-          url
-        }
-        id
-        nome
-        descricao
-        slug
-      }
-    }  
-  `
-
-  const data = await fetch(
-    'https://api-sa-east-1.hygraph.com/v2/cls9mho2o1sro01w3m1dte5de/master',
-    {
-      method: 'POST',
-      body: JSON.stringify({
-        query,
-      }),
-      next: {
-        revalidate: 60 * 60 * 24, // 24 hours
-      },
-    },
-  )
-
-  const response: Response = await data.json()
-
-  const { projetos } = response.data
-
-  return {
-    data: {
-      projects: projetos.map((project) => ({
-        id: project.id,
-        name: project.nome,
-        description: project.descricao,
-        slug: project.slug,
-        homeBanner: project.capaHome.url,
-      })),
-    },
-  }
-}
+const OurWayBuildingSection = dynamic(() =>
+  import('./components/our-way-building-section').then((mod) => ({
+    default: mod.OurWayBuildingSection,
+  })),
+)
 
 export default async function Home() {
-  const { data } = await loadHomeContent()
-
   return (
     <div className="w-full">
       <HeroSection />
-
       <BrandSection />
-
-      <ProjectsSection projects={data.projects} />
+      <ProjectsSection />
 
       <section
         id="o-que-fazemos"
@@ -172,40 +96,9 @@ export default async function Home() {
         </div>
       </section>
 
-      <ProcessSection />
-
-      <section
-        id="feedbacks"
-        className="mx-auto w-full max-w-container space-y-10.5 px-5 py-16 md:px-8 lg:space-y-14 lg:px-5 lg:py-28"
-      >
-        <div className="flex items-end justify-between">
-          <h2 className="text-[1.75rem] font-semibold md:text-[2rem] lg:max-w-[32rem] lg:text-[2.625rem] lg:leading-tight">
-            Experiências dos Nosso Clientes
-          </h2>
-
-          <div className="hidden items-center gap-4 lg:flex">
-            <div className="flex h-14 w-[18.5rem] items-center justify-between rounded-md bg-brand-primary px-4 py-2 pl-5">
-              <span className="relative pl-2 text-sm text-text-white-secondary before:absolute before:left-0 before:top-1/2 before:h-4.5 before:w-0.5 before:-translate-y-1/2 before:animate-blinking-hand before:bg-text-white-primary">
-                Add comentário
-              </span>
-
-              <div className="rounded-full bg-background-white p-1.5">
-                <ArrowUp
-                  size={18}
-                  strokeWidth={3}
-                  className="text-brand-primary"
-                />
-              </div>
-            </div>
-
-            <CommentCursorFigma />
-          </div>
-        </div>
-
-        <ClientTestimonyCarousel />
-      </section>
-
-      <EmphasisScreensSection />
+      <OurWayBuildingSection />
+      <ClientFeedbackSection />
+      <HighlightScreensSection />
     </div>
   )
 }

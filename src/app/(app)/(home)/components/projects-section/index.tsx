@@ -4,9 +4,11 @@ import Link from 'next/link'
 
 import { FigmaButton } from '@/assets/figma-button'
 import { ArrowUpRight } from 'lucide-react'
-import { Project } from '../../page'
+import { fetchHomeProjects } from '@/app/actions/fetch-home-projects'
 
-export function ProjectsSection({ projects }: { projects: Project[] }) {
+export async function ProjectsSection() {
+  const { projects } = await fetchHomeProjects()
+
   return (
     <section
       id="projetos"
@@ -31,7 +33,7 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
                 <Image
                   fill
                   sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"
-                  src={project.homeBanner}
+                  src={project.homeBannerUrl}
                   alt="Picture of the author"
                   className="object-cover"
                   quality={100}
@@ -76,7 +78,7 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
                 <Image
                   fill
                   sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"
-                  src={project.homeBanner}
+                  src={project.homeBannerUrl}
                   alt="Picture of the author"
                   className="h-full w-full object-cover"
                   quality={100}

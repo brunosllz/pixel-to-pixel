@@ -1,7 +1,7 @@
 import { PixelToPixelDarkLogo } from '@/assets/pixel-to-pixel-dark-logo'
 
-import { BrandLabelMD } from './brand-label-md'
-import { BrandLabel } from './brand-label'
+import { BrandLabelMD } from './components/brand-label-md'
+import { BrandLabel } from './components/brand-label'
 
 export function BrandSection() {
   return (

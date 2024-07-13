@@ -6,23 +6,9 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { PixelToPixelWhiteLogo } from '@/assets/pixel-to-pixel-white-logo'
 import { usePathname } from 'next/navigation'
 import { ButtonBackToTop } from './button-back-to-top'
+import { SOCIAL_MEDIA_LINKS } from '@/utils/constants'
 
 const HIDDEN_BUTTON = ['/contato', '/agradecimento']
-
-const NAV_ITEMS = [
-  {
-    label: 'Linkedin',
-    href: 'https://www.linkedin.com/in/ui-amaurijunior/',
-  },
-  {
-    label: 'Behance',
-    href: 'https://www.behance.net/ui_amauri',
-  },
-  {
-    label: 'Dribbble',
-    href: 'https://dribbble.com/amaurijunior',
-  },
-]
 
 export function Footer() {
   const pathName = usePathname()
@@ -53,7 +39,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 grid grid-cols-3 gap-8 md:max-w-[24.625rem] lg:mt-10.5">
-          {NAV_ITEMS.map((navItem) => (
+          {SOCIAL_MEDIA_LINKS.map((navItem) => (
             <Link
               key={navItem.href}
               href={navItem.href}

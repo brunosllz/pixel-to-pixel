@@ -6,9 +6,11 @@ import dynamic from 'next/dynamic'
 import { CarouselApi } from '@/components/ui/carousel'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
-import { ProjectInspirationCard } from './project-inspiration-card'
 
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+
+import { AnotherProjectCard } from './components/another-project-card'
+import { AnotherProject } from '@/app/actions/fetch-more-projects'
 
 const Carousel = dynamic(() =>
   import('@/components/ui/carousel').then((mod) => ({ default: mod.Carousel })),
@@ -20,7 +22,11 @@ const CarouselContent = dynamic(() =>
   })),
 )
 
-export function ProjectsInspirationsCarousel() {
+export function AnotherProjectsCarrousel({
+  anotherProjects,
+}: {
+  anotherProjects: AnotherProject[]
+}) {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
@@ -43,8 +49,8 @@ export function ProjectsInspirationsCarousel() {
       <Carousel setApi={setApi}>
         <div className="space-y-8">
           <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <ProjectInspirationCard key={index} />
+            {anotherProjects.map((project) => (
+              <AnotherProjectCard key={project.id} {...project} />
             ))}
           </CarouselContent>
 
