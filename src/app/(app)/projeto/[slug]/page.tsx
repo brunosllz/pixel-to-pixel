@@ -60,11 +60,15 @@ export default async function Project({
               </p>
 
               <Link
-                href="https://devxperience.app/"
+                href={projectDetails.linkAccessUrl}
                 target="_blank"
                 className="flex items-center gap-2 text-text-white-secondary transition-colors hover:text-text-white-primary"
               >
-                Acessar Website <ArrowUpRight />
+                Acessar{' '}
+                {projectDetails.typeAccess === 'website'
+                  ? 'Website'
+                  : 'Behance'}
+                <ArrowUpRight />
               </Link>
             </div>
           </div>
