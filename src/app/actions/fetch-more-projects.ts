@@ -37,7 +37,12 @@ export async function fetchMoreProjects({
 }): Promise<FetchMoreProjectsTreathedResponse> {
   const query = `
     query fetchMoreProjects {
-      projetos(where: {NOT: {slug: "${slug}"}}) {
+      projetos(
+        where: {
+          NOT: {slug: "${slug}"},
+          AND: {statusProjeto: finalizado}
+        }
+      ) {
         capaHome {
           url
         }
