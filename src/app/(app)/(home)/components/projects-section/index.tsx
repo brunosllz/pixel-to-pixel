@@ -31,10 +31,10 @@ export async function ProjectsSection() {
             <div className="flex flex-col gap-4 pt-8 md:hidden">
               <div className="relative h-[15rem] w-full overflow-hidden bg-[#D9D9D9]">
                 {project.status === 'inProgress' && (
-                  <div className="absolute left-4 top-4 z-10 flex items-center gap-1 bg-white p-3">
-                    <Settings className="size-5" />
+                  <div className="absolute left-2 top-2 z-10 flex items-center gap-1 bg-white p-2">
+                    <Settings className="size-4" />
 
-                    <span className="text-sm">Em construção</span>
+                    <span className="text-xs">Em construção</span>
                   </div>
                 )}
 
