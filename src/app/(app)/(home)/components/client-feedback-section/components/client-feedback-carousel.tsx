@@ -64,7 +64,7 @@ export function ClientFeedbackCarousel({
                       width={50}
                       height={50}
                       src={feedback.clientAvatarUrl}
-                      alt=""
+                      alt={feedback.clientName}
                       className="h-full w-full object-cover"
                     />
                   </div>

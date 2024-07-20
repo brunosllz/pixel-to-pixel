@@ -17,6 +17,7 @@ type ProjectDetailsResponseAPI = {
   nome: string
   nomeDoCliente: string
   tipo: 'website' | 'app' | 'landingPage'
+  statusProjeto: 'finalizado' | 'emConstrucao'
   imagemDoCliente: {
     url: string
   } | null
@@ -44,6 +45,7 @@ export type ProjectDeTails = {
   clientAvatarUrl: string | null
   type: 'website' | 'app' | 'landingPage'
   typeAccess: 'website' | 'behance'
+  status: 'finished' | 'inProgress'
   linkAccessUrl: string
   moreImages: Array<{ url: string }>
 }
@@ -69,6 +71,7 @@ export async function GetProjectDetails({
         descricao
         funcaoDoCliente
         funcaoRealizada
+        statusProjeto
         id
         nome
         nomeDoCliente
@@ -119,6 +122,8 @@ export async function GetProjectDetails({
       roleRealized: projeto.funcaoRealizada,
       type: projeto.tipo,
       moreImages: projeto.maisImagens,
+      status:
+        projeto.statusProjeto === 'finalizado' ? 'finished' : 'inProgress',
     },
   }
 }

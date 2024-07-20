@@ -11,6 +11,7 @@ import { GetProjectDetails } from '@/app/actions/get-project-details'
 import { ProjectTypeIcon } from './components/project-type-icon'
 
 import { MoreProjectsSection } from './components/more-projects-section'
+import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Projeto',
@@ -24,6 +25,10 @@ export default async function Project({
   const { projectDetails } = await GetProjectDetails({
     slug: params.slug,
   })
+
+  if (projectDetails.status === 'inProgress') {
+    return notFound()
+  }
 
   return (
     <div className="w-full">
@@ -79,12 +84,12 @@ export default async function Project({
             </div>
           </div>
 
-          <div className="relative h-[13.75rem] w-full bg-[#D9D9D9] md:h-[26.25rem] lg:h-[38.75rem]">
+          <div className="relative h-[15rem] w-full bg-[#D9D9D9] md:h-[26.25rem] lg:h-[38.75rem]">
             <Image
               src={projectDetails.banner}
               alt={projectDetails.name}
               fill
-              sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"
+              sizes="(min-width: 768px) 100vw, (min-width: 1024px) 1216px, 100vw"
               priority
               quality={100}
               className="object-cover"
@@ -154,35 +159,35 @@ export default async function Project({
 
       <section className="mx-auto w-full max-w-container">
         <div className="border-b border-border-white-primary px-5 pb-10.5 pt-8 md:px-8 lg:px-5 lg:pb-14 lg:pt-14">
-          <div className="grid grid-cols-2 gap-3 lg:gap-6">
-            <div className="relative col-span-2 h-[10.25rem] bg-[#D9D9D9] md:h-[23.75rem] lg:h-[37.25rem]">
+          <div className="grid grid-cols-2 gap-5 lg:gap-6">
+            <div className="relative col-span-2 h-[15rem] bg-[#D9D9D9] md:h-[23.75rem] lg:h-[37.25rem]">
               <Image
                 src={projectDetails.moreImages[0].url}
                 alt=""
                 fill
-                sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"
+                sizes="(min-width: 768px) 100vw, (min-width: 1024px) 1216px, 100vw"
                 className="object-cover"
                 quality={100}
               />
             </div>
 
-            <div className="relative h-[8.125rem] bg-[#D9D9D9] md:h-[13.75rem] lg:h-[30rem]">
+            <div className="relative col-span-2 h-[15rem] bg-[#D9D9D9] md:col-span-1 md:h-[17.5rem] lg:h-[30rem]">
               <Image
                 src={projectDetails.moreImages[1].url}
                 alt=""
                 fill
-                sizes="(min-width: 768px) 346px, (min-width: 1024px) 596px, 160px"
+                sizes="(min-width: 768px) 424px, (min-width: 1024px) 596px, 100vw"
                 className="object-cover"
                 quality={100}
               />
             </div>
 
-            <div className="relative h-[8.125rem] bg-[#D9D9D9] md:h-[13.75rem] lg:h-[30rem]">
+            <div className="relative col-span-2 h-[15rem] bg-[#D9D9D9] md:col-span-1 md:h-[17.5rem] lg:h-[30rem]">
               <Image
                 src={projectDetails.moreImages[2].url}
                 alt=""
                 fill
-                sizes="(min-width: 768px) 346px, (min-width: 1024px) 596px, 160px"
+                sizes="(min-width: 768px) 424px, (min-width: 1024px) 596px, 100vw"
                 className="object-cover"
                 quality={100}
               />
@@ -200,35 +205,35 @@ export default async function Project({
           <h2 className="text-lg font-medium lg:text-xl">Resultado Final</h2>
         </div>
 
-        <div className="grid-cols grid gap-3 lg:gap-6">
-          <div className="relative col-span-2 h-[10.25rem] w-full bg-[#D9D9D9] md:h-[23.75rem] lg:h-[37.25rem]">
+        <div className="grid-cols grid gap-5 lg:gap-6">
+          <div className="relative col-span-2 h-[15rem] w-full bg-[#D9D9D9] md:h-[23.75rem] lg:h-[37.25rem]">
             <Image
               src={projectDetails.moreImages[3].url}
               alt=""
               fill
-              sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"
+              sizes="(min-width: 768px) 100vw, (min-width: 1024px) 1216px, 100vw"
               className="object-cover"
               quality={100}
             />
           </div>
 
-          <div className="relative h-[8.125rem]  w-full bg-[#D9D9D9] md:h-[13.75rem] lg:h-[30rem]">
+          <div className="relative col-span-2 h-[15rem] w-full bg-[#D9D9D9] md:col-span-1 md:h-[16.25rem] lg:h-[30rem]">
             <Image
               src={projectDetails.moreImages[4].url}
               alt=""
               fill
-              sizes="(min-width: 768px) 346px, (min-width: 1024px) 596px, 160px"
+              sizes="(min-width: 768px) 424px, (min-width: 1024px) 596px, 100vw"
               className="object-cover"
               quality={100}
             />
           </div>
 
-          <div className="relative h-[8.125rem] w-full bg-[#D9D9D9] md:h-[13.75rem] lg:h-[30rem]">
+          <div className="relative col-span-2 h-[15rem] w-full bg-[#D9D9D9] md:col-span-1 md:h-[16.25rem] lg:h-[30rem]">
             <Image
               src={projectDetails.moreImages[5].url}
               alt=""
               fill
-              sizes="(min-width: 768px) 346px, (min-width: 1024px) 596px, 160px"
+              sizes="(min-width: 768px) 424px, (min-width: 1024px) 596px, 100vw"
               className="object-cover"
               quality={100}
             />
@@ -239,40 +244,40 @@ export default async function Project({
               src={projectDetails.moreImages[6].url}
               alt=""
               fill
-              sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"
+              sizes="(min-width: 768px) 100vw, (min-width: 1024px) 1216px, 100vw"
               className="object-cover"
               quality={100}
             />
           </div>
 
-          <div className="relative h-[8.125rem]  w-full bg-[#D9D9D9] md:h-[13.75rem] lg:h-[30rem]">
+          <div className="relative col-span-2 h-[15rem] w-full bg-[#D9D9D9] md:col-span-1 md:h-[16.25rem] lg:h-[30rem]">
             <Image
               src={projectDetails.moreImages[7].url}
               alt=""
               fill
-              sizes="(min-width: 768px) 346px, (min-width: 1024px) 596px, 160px"
+              sizes="(min-width: 768px) 424px, (min-width: 1024px) 596px, 100vw"
               className="object-cover"
               quality={100}
             />
           </div>
 
-          <div className="relative h-[8.125rem] w-full bg-[#D9D9D9] md:h-[13.75rem] lg:h-[30rem]">
+          <div className="relative col-span-2 h-[15rem] w-full bg-[#D9D9D9] md:col-span-1 md:h-[16.25rem] lg:h-[30rem]">
             <Image
               src={projectDetails.moreImages[8].url}
               alt=""
               fill
-              sizes="(min-width: 768px) 346px, (min-width: 1024px) 596px, 160px"
+              sizes="(min-width: 768px) 424px, (min-width: 1024px) 596px, 100vw"
               className="object-cover"
               quality={100}
             />
           </div>
 
-          <div className="relative col-span-2 h-[27.5rem] w-full bg-[#D9D9D9] md:h-[23.75rem] lg:h-[100rem]">
+          <div className="relative col-span-2 h-[31.25rem] w-full bg-[#D9D9D9] md:h-[46.25rem] lg:h-[100rem]">
             <Image
               src={projectDetails.moreImages[9].url}
               alt=""
               fill
-              sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 385px"
+              sizes="(min-width: 768px) 100vw, (min-width: 1024px) 1216px, 100vw"
               className="object-cover"
               quality={100}
             />

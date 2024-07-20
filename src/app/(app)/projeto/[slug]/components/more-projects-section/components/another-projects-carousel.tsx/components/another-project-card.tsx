@@ -53,10 +53,7 @@ export function AnotherProjectCard({
 
   return (
     <CarouselItem>
-      <Link
-        className=" group-[.is-draggable]:cursor-grab group-[.is-dragging]:cursor-grabbing"
-        href={`/projeto/${slug}`}
-      >
+      <Link href={`/projeto/${slug}`}>
         <div className="border border-border-white-secondary">
           <div className="md:hidden">
             <div
@@ -82,6 +79,7 @@ export function AnotherProjectCard({
                   fill
                   src={banner}
                   alt="Picture of the author"
+                  sizes="(min-width: 768px) 596px, (min-width: 1024px) 948px, 100vw"
                   className="object-cover"
                 />
               </div>
@@ -137,7 +135,7 @@ export function AnotherProjectCard({
                   src={banner}
                   alt="Picture of the author"
                   className="object-cover"
-                  sizes="(min-width: 768px) 416px, (min-width: 1024px) 836px, 335px"
+                  sizes="(min-width: 768px) 596px, (min-width: 1024px) 948px, 100vw"
                 />
               </div>
             </div>

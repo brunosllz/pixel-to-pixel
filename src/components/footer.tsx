@@ -52,7 +52,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-10.5 space-y-8 border-t border-border-dark-secondary pt-5 md:mt-14 md:flex md:items-center md:justify-between md:space-y-0 md:pt-12">
+        <div className="mt-10.5 flex flex-col space-y-8 border-t border-border-dark-secondary pt-5 md:mt-14 md:flex-row md:items-center md:justify-between md:space-y-0 md:pt-12">
           <span className="block text-center text-sm text-text-white-complementary md:hidden">
             @PixeltoPixel {new Date().getFullYear()}
           </span>

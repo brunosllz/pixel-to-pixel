@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { FigmaButton } from '@/assets/figma-button'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Settings } from 'lucide-react'
 import { fetchHomeProjects } from '@/app/actions/fetch-home-projects'
 
 export async function ProjectsSection() {
@@ -29,13 +29,22 @@ export async function ProjectsSection() {
             className="bg-background-white lg:first:border-t-2 lg:first:border-border-white-primary"
           >
             <div className="flex flex-col gap-4 pt-8 md:hidden">
-              <div className="relative h-[11.25rem] w-full overflow-hidden bg-[#D9D9D9]">
+              <div className="relative h-[15rem] w-full overflow-hidden bg-[#D9D9D9]">
+                {project.status === 'inProgress' && (
+                  <div className="absolute left-4 top-4 z-10 flex items-center gap-1 bg-white p-3">
+                    <Settings className="size-5" />
+
+                    <span className="text-sm">Em construção</span>
+                  </div>
+                )}
+
                 <Image
                   fill
-                  sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"
+                  sizes="(min-width: 768px) 100vw, (min-width: 1024px) 1216px, 100vw"
                   src={project.homeBannerUrl}
-                  alt="Picture of the author"
-                  className="object-cover"
+                  alt={project.name}
+                  data-in-progress={project.status === 'inProgress'}
+                  className="object-cover data-[in-progress=true]:saturate-0"
                   quality={100}
                 />
               </div>
@@ -46,8 +55,17 @@ export async function ProjectsSection() {
                 {project.description}
               </p>
 
-              <Button size="sm" variant="outlined-primary" asChild>
-                <Link href={`/projeto/${project.slug}`}>
+              <Button
+                size="sm"
+                variant="outlined-primary"
+                asChild
+                disabled={project.status === 'inProgress'}
+              >
+                <Link
+                  href={`/projeto/${project.slug}`}
+                  data-disabled={project.status === 'inProgress'}
+                  className="data-[disabled=true]:pointer-events-none data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50"
+                >
                   <span>
                     Ver projeto <ArrowUpRight size={18} />
                   </span>
@@ -60,8 +78,17 @@ export async function ProjectsSection() {
                 <div className="space-y-9 lg:space-y-13">
                   <h3 className="text-lg font-semibold">{project.name}</h3>
 
-                  <Button size="sm" variant="outlined-primary" asChild>
-                    <Link href={`/projeto/${project.slug}`}>
+                  <Button
+                    size="sm"
+                    variant="outlined-primary"
+                    asChild
+                    disabled={project.status === 'inProgress'}
+                  >
+                    <Link
+                      href={`/projeto/${project.slug}`}
+                      data-disabled={project.status === 'inProgress'}
+                      className="data-[disabled=true]:pointer-events-none data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50"
+                    >
                       <span>
                         Ver projeto <ArrowUpRight size={18} />
                       </span>
@@ -74,13 +101,24 @@ export async function ProjectsSection() {
                 </p>
               </div>
 
-              <div className="relative col-span-2 h-[11.25rem] w-full overflow-hidden bg-[#D9D9D9] md:h-[17.5rem] lg:h-[30rem]">
+              <div className="relative col-span-2 h-[15rem] w-full overflow-hidden bg-[#D9D9D9] md:h-[17.5rem] lg:h-[30rem]">
+                {project.status === 'inProgress' && (
+                  <div className="absolute left-4 top-4 z-10 flex items-center gap-1 bg-white p-3">
+                    <Settings className="size-5" />
+
+                    <span className="text-sm font-medium md:text-base">
+                      Em construção
+                    </span>
+                  </div>
+                )}
+
                 <Image
                   fill
-                  sizes="(min-width: 768px) 704px, (min-width: 1024px) 1216px, 335px"
+                  sizes="(min-width: 768px) 100vw, (min-width: 1024px) 1216px, 100vw"
                   src={project.homeBannerUrl}
-                  alt="Picture of the author"
-                  className="h-full w-full object-cover"
+                  alt={project.name}
+                  data-in-progress={project.status === 'inProgress'}
+                  className="object-cover data-[in-progress=true]:saturate-0"
                   quality={100}
                 />
               </div>

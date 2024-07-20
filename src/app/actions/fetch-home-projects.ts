@@ -5,6 +5,7 @@ type ProjectsResponseAPI = {
   nome: string
   descricao: string
   slug: string
+  statusProjeto: 'finalizado' | 'emConstrucao'
   capaHome: {
     url: string
   }
@@ -21,6 +22,7 @@ export type Project = {
   description: string
   slug: string
   homeBannerUrl: string
+  status: 'finished' | 'inProgress'
 }
 
 type FetchHomeProjectsTreathedResponse = {
@@ -38,6 +40,7 @@ export async function fetchHomeProjects(): Promise<FetchHomeProjectsTreathedResp
         nome
         descricao
         slug
+        statusProjeto
       }
     }  
   `
@@ -66,6 +69,8 @@ export async function fetchHomeProjects(): Promise<FetchHomeProjectsTreathedResp
       description: project.descricao,
       slug: project.slug,
       homeBannerUrl: project.capaHome.url,
+      status:
+        project.statusProjeto === 'finalizado' ? 'finished' : 'inProgress',
     })),
   }
 }
