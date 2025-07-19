@@ -1,5 +1,5 @@
-import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,5 +8,5 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <main>{children}</main>
       <Footer />
     </>
-  )
+  );
 }

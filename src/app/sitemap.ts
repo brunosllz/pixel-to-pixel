@@ -1,24 +1,24 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://pixel-to-pixel.vercel.app',
+      url: "https://pixel-to-pixel.vercel.app",
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: 'https://pixel-to-pixel.vercel.app/projeto/*',
+      url: "https://pixel-to-pixel.vercel.app/projeto/*",
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.5,
     },
     {
-      url: 'https://acme.com/contato',
+      url: "https://pixel-to-pixel.vercel.app/contato",
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: "yearly",
       priority: 0.8,
     },
-  ]
+  ];
 }

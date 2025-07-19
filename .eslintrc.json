@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "@rocketseat/eslint-config/next"],
+  "extends": ["next/core-web-vitals"],
   "rules": {
     "no-console": "error",
     "camelcase": "off"
